@@ -60,7 +60,7 @@ public class Demo4 {
     }
 
     public static void main(String[] args) {
-//        test1();
+        serial();
         concurrency();
     }
 
