@@ -31,7 +31,14 @@ public class Demo3 {
     });
 
     Thread thread5 = new Thread(() -> {
-        System.out.println("lily");
+        while (true) {
+            System.out.println("frank");
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
     });
 
 }
