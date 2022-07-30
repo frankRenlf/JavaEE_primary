@@ -1,4 +1,5 @@
 package thread;
+import java.util.Random;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,11 +12,7 @@ package thread;
  * @Email : sc19lr@leeds.ac.uk
  * @github : https://github.com/frankRenlf
  * @Description :
- */
-
-import java.util.Random;
-
-/**
+ *
  * 题目名称 :
  * 编写代码, 实现多线程数组求和.
  * 题目内容 :
@@ -28,6 +25,28 @@ import java.util.Random;
  * @author 比特就业课
  * @created 2022-06-20
  */
+
+
+// 累加操作用这个类来完成
+class SumOperator {
+    long evenSum;
+    long oddSum;
+
+    public void addEvenSum(int num) {
+        evenSum += num;
+    }
+
+    public void addOddSum(int num) {
+        oddSum += num;
+    }
+
+    public long result() {
+        System.out.println("偶数和：" + evenSum);
+        System.out.println("奇数和：" + oddSum);
+        return evenSum + oddSum;
+    }
+}
+
 public class work1 {
     public static void main(String[] args) throws InterruptedException {
         // 记录开始时间
@@ -78,22 +97,3 @@ public class work1 {
     }
 }
 
-// 累加操作用这个类来完成
-class SumOperator {
-    long evenSum;
-    long oddSum;
-
-    public void addEvenSum(int num) {
-        evenSum += num;
-    }
-
-    public void addOddSum(int num) {
-        oddSum += num;
-    }
-
-    public long result() {
-        System.out.println("偶数和：" + evenSum);
-        System.out.println("奇数和：" + oddSum);
-        return evenSum + oddSum;
-    }
-}
