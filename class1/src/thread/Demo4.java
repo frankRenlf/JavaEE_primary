@@ -38,7 +38,6 @@ public class Demo4 {
                 a++;
             }
         });
-
         Thread thread2 = new Thread(() -> {
             int a = 0;
             for (int i = 0; i < len; i++) {
