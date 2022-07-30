@@ -13,7 +13,7 @@ package thread;
  * @Description :
  */
 
-class MyThread extends Thread {
+class MyThread1 extends Thread {
     @Override
     public void run() {
         System.out.println("Hello thread!");
@@ -25,12 +25,17 @@ class MyThread extends Thread {
     }
 }
 
+
 public class Demo1 {
 
-    public static void main(String[] args) {
-        Thread myThread = new MyThread();
+    public static void main1(String[] args) {
+        Thread myThread = new MyThread1();
         myThread.start();
         System.out.println(123);
+    }
+
+    public static void main(String[] args) {
+
     }
 
 }
