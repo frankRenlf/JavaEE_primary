@@ -13,4 +13,19 @@ package thread;
  * @Description :
  */
 public class Demo7 {
+
+    public static void main1(String[] args) {
+        Thread t1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("hello");
+            }
+        }, "thread1");
+        t1.start();
+    }
+
+    public static void main(String[] args) {
+
+    }
+
 }
