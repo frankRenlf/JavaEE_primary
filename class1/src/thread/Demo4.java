@@ -49,7 +49,6 @@ public class Demo4 {
         try {
             thread1.join();
             thread2.join();
-
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
