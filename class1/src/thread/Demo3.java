@@ -14,9 +14,24 @@ package thread;
  */
 
 
-
 public class Demo3 {
 
-    Thread thread = new Thread(new )
+    Thread thread3 = new Thread() {
+        @Override
+        public void run() {
+            System.out.println("123");
+        }
+    };
+
+    Thread thread4 = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            System.out.println("frank");
+        }
+    });
+
+    Thread thread5 = new Thread(() -> {
+        System.out.println("lily");
+    });
 
 }
