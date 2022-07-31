@@ -19,7 +19,7 @@ public class demo10 {
     public static void main(String[] args) throws InterruptedException {
         Thread t = new Thread(() -> {
             while (!Thread.currentThread().isInterrupted()) {
-                System.out.println("Running");
+                System.out.println(Thread.currentThread().isInterrupted());
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
