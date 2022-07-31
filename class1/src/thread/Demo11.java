@@ -13,4 +13,37 @@ package thread;
  * @Description :
  */
 public class Demo11 {
+
+    public static void main(String[] args) throws InterruptedException {
+        Thread t1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("t1 begin");
+                try {
+                    Thread.sleep(1000);
+                    System.out.println("t1 end");
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+        Thread t2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("t2 begin");
+                try {
+                    Thread.sleep(1000);
+                    System.out.println("t2 end");
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+        t2.start();
+        t2.join();
+        t1.start();
+        t1.join();
+
+    }
+
 }
