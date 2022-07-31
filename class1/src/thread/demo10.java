@@ -1,5 +1,7 @@
 package thread;
 
+import java.util.Scanner;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -13,4 +15,31 @@ package thread;
  * @Description :
  */
 public class demo10 {
+
+    public static void main(String[] args) throws InterruptedException {
+        Thread t = new Thread(() -> {
+            while (!Thread.currentThread().isInterrupted()) {
+                System.out.println("Running");
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    System.out.println("Catch exception");
+                    System.out.println("1.continue. 2.exit");
+                    System.out.println("Select: ");
+                    Scanner sc = new Scanner(System.in);
+                    if (sc.nextInt() == 1) {
+                        System.out.println("continue");
+                    } else {
+                        break;
+                    }
+                    e.printStackTrace();
+                }
+            }
+        });
+        t.start();
+        Thread.sleep(5000);
+        t.interrupt();
+
+    }
+
 }
