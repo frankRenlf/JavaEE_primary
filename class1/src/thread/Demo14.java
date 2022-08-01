@@ -12,5 +12,39 @@ package thread;
  * @github : https://github.com/frankRenlf
  * @Description :
  */
+
+class Counter {
+    public int count;
+
+    public synchronized void increase() {
+        count++;
+    }
+}
+
 public class Demo14 {
+
+    public static Counter counter = new Counter();
+
+    public static void main(String[] args) {
+        Thread t1 = new Thread(() -> {
+            for (int i = 0; i < 5_0000; i++) {
+                counter.increase();
+            }
+        });
+        Thread t2 = new Thread(() -> {
+            for (int i = 0; i < 5_0000; i++) {
+                counter.increase();
+            }
+        });
+        t1.start();
+        t2.start();
+        try {
+            t1.join();
+            t2.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(counter.count);
+    }
+
 }
