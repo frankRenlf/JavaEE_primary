@@ -21,6 +21,12 @@ class Counter {
             this.count++;
         }
     }
+
+    public void increase2() {
+
+        this.count++;
+
+    }
 }
 
 public class Demo14 {
