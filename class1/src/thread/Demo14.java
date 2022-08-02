@@ -16,8 +16,10 @@ package thread;
 class Counter {
     public int count;
 
-    public synchronized void increase() {
-        count++;
+    public void increase() {
+        synchronized (this) {
+            this.count++;
+        }
     }
 }
 
