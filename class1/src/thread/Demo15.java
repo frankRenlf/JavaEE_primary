@@ -1,5 +1,7 @@
 package thread;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -43,6 +45,10 @@ public class Demo15 {
         });
         t1.start();
         t2.start();
+    }
+
+    public static void main(String[] args) {
+        ArrayList
     }
 
 }
