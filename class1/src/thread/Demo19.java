@@ -14,7 +14,7 @@ package thread;
  */
 
 class T {
-    public void print() {
+    public synchronized void print() {
         System.out.println(Thread.currentThread().getName());
     }
 }
