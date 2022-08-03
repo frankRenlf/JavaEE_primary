@@ -43,11 +43,11 @@ public class Demo19 {
             synchronized (b) {
                 try {
                     b.wait();
-                    b.print();
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
             }
+            b.print();
             synchronized (a) {
                 a.notify();
             }
