@@ -47,8 +47,7 @@ public class Demo15 {
         t2.start();
     }
 
-    public static void main(String[] args) {
-        ArrayList
+    public static void main1(String[] args) {
     }
 
 }
