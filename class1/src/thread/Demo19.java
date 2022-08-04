@@ -63,10 +63,7 @@ public class Demo19 {
                 a.print();
             }
         }, "a");
-
-
-
-
+        
         ta.start();
         tb.start();
         tc.start();
