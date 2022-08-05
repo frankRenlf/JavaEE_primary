@@ -12,5 +12,14 @@ package thread;
  * @github : https://github.com/frankRenlf
  * @Description :
  */
+
+class MyThreadPool {
+
+    public void submit(Runnable runnable) {
+
+    }
+
+}
+
 public class Demo25 {
 }
