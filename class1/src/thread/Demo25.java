@@ -1,5 +1,8 @@
 package thread;
 
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -14,6 +17,8 @@ package thread;
  */
 
 class MyThreadPool {
+
+    private BlockingQueue<Runnable> blockingQueue = new LinkedBlockingQueue<>();
 
     public void submit(Runnable runnable) {
 
