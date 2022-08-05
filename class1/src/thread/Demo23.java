@@ -49,7 +49,7 @@ class MyTask implements Comparable<MyTask> {
 // 咱们自己创建的定时器类.
 class MyTimer {
     // 这个是用来阻塞等待的锁对象
-    private Object locker = new Object();
+    private final Object locker = new Object();
 
     // 使用优先级队列来保存若干个任务.
     private PriorityBlockingQueue<MyTask> queue = new PriorityBlockingQueue<>();
