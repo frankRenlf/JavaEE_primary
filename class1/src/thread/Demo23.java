@@ -78,6 +78,7 @@ class MyTimer {
                             myTask.run();
                         } else {
                             queue.put(myTask);
+                            locker.wait(myTask.getTime() - current);
                         }
                     }
                 } catch (InterruptedException e) {
@@ -90,4 +91,28 @@ class MyTimer {
 }
 
 public class Demo23 {
+
+    public static void main(String[] args) {
+        MyTimer myTimer = new MyTimer();
+        long cur = System.currentTimeMillis();
+        myTimer.schedule(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("6: " + (System.currentTimeMillis() - cur));
+            }
+        }, 6000);
+        myTimer.schedule(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("3: " + (System.currentTimeMillis() - cur));
+            }
+        }, 3000);
+        myTimer.schedule(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("4: " + (System.currentTimeMillis() - cur));
+            }
+        }, 4000);
+    }
+
 }
