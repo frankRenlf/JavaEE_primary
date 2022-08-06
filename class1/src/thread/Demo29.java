@@ -17,16 +17,17 @@ import java.util.concurrent.*;
 public class Demo29 {
 
     public static void main(String[] args) {
-        ExecutorService pool = new ThreadPoolExecutor(1, 5, 1000,
+        ExecutorService pool = new ThreadPoolExecutor(1, 2, 1000,
                 TimeUnit.MILLISECONDS,
                 new SynchronousQueue<Runnable>(),
                 Executors.defaultThreadFactory(),
-                new ThreadPoolExecutor.AbortPolicy());
+                new ThreadPoolExecutor.DiscardOldestPolicy());
         for (int i = 0; i < 3; i++) {
+            final int x = i;
             pool.submit(new Runnable() {
                 @Override
                 public void run() {
-                    System.out.println("hello");
+                    System.out.println(x);
                 }
             });
         }
