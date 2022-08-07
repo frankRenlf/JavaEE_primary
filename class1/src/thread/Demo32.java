@@ -19,7 +19,7 @@ public class Demo32 {
         // 模拟跑步比赛
         // 构造方法中设定有几个选手参赛
         CountDownLatch latch = new CountDownLatch(10);
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 9; i++) {
             Thread t = new Thread(() -> {
                 try {
                     Thread.sleep(3000);
