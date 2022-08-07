@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f1b12f4-4ccd-4692-8a2e-75d8fa6f99c8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/File/Demo1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/file/Demo2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/file/Demo3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/file/Demo4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/file/Demo5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/files/test.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IO_operation/File/Demo1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IO_operation/File/Demo1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/File/Demo1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/file/Demo1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,25 +30,80 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2D11cil5RNT1SKqkRSac8dHyyOE" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Demo5">
     <configuration name="Demo1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="File.Demo1" />
+      <option name="MAIN_CLASS_NAME" value="file.Demo1" />
       <module name="IO_operation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="File.*" />
+          <option name="PATTERN" value="file.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Demo2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="file.Demo2" />
+      <module name="IO_operation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="file.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Demo3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="file.Demo3" />
+      <module name="IO_operation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="file.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Demo4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="file.Demo4" />
+      <module name="IO_operation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="file.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Demo5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="file.Demo5" />
+      <module name="IO_operation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="file.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -52,7 +113,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Demo1" />
+        <item itemvalue="Application.Demo5" />
+        <item itemvalue="Application.Demo4" />
+        <item itemvalue="Application.Demo3" />
+        <item itemvalue="Application.Demo2" />
+        <item itemvalue="Application.file.Demo1" />
       </list>
     </recent_temporary>
   </component>
@@ -64,11 +129,14 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1659851859159</updated>
-      <workItem from="1659851860715" duration="866000" />
+      <workItem from="1659851860715" duration="1553000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
