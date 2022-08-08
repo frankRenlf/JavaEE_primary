@@ -25,6 +25,9 @@ public class Demo7 {
         pw.print("frank");
         pw.print("second");
         pw.flush();
+        pw.close();
+        outputStreamWriter.close();
+        os.close();
     }
 
 }
