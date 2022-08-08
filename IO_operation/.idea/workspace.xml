@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f1b12f4-4ccd-4692-8a2e-75d8fa6f99c8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/file/Demo7.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/file/Demo7.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/files/toDoList" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/Demo4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/file/Demo4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/Demo8.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/file/Demo8.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,20 +41,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Demo7">
-    <configuration name="Demo3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="file.Demo3" />
-      <module name="IO_operation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="file.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Demo8">
     <configuration name="Demo4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="file.Demo4" />
       <module name="IO_operation" />
@@ -104,13 +94,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Demo8" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="file.Demo8" />
+      <module name="IO_operation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="file.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Demo8" />
+        <item itemvalue="Application.Demo4" />
         <item itemvalue="Application.Demo7" />
         <item itemvalue="Application.Demo6" />
         <item itemvalue="Application.Demo5" />
-        <item itemvalue="Application.Demo4" />
-        <item itemvalue="Application.Demo3" />
       </list>
     </recent_temporary>
   </component>
@@ -123,7 +126,7 @@
       <option name="presentableId" value="Default" />
       <updated>1659851859159</updated>
       <workItem from="1659851860715" duration="2425000" />
-      <workItem from="1659929623849" duration="2111000" />
+      <workItem from="1659929623849" duration="4651000" />
     </task>
     <servers />
   </component>

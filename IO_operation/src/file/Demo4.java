@@ -1,6 +1,8 @@
 package file;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,13 +19,14 @@ import java.io.File;
 public class Demo4 {
 
     public static void main(String[] args) {
-        File file = new File("newPath/local");
+        File file = new File("./src/file123");
         System.out.println(file.exists());
         System.out.println(file.isDirectory());
-
-        file.mkdirs();
-        System.out.println(file.exists());
-        System.out.println(file.isDirectory());
+        System.out.println(file.getPath());
+        System.out.println(Arrays.toString(file.list()));
+//        file.mkdirs();
+//        System.out.println(file.exists());
+//        System.out.println(file.isDirectory());
     }
 
 }
