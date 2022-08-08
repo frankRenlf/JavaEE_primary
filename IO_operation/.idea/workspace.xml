@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f1b12f4-4ccd-4692-8a2e-75d8fa6f99c8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/file/Demo2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/file/Demo3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/file/Demo4.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/file/Demo5.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/files/test.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IO_operation/File/Demo1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IO_operation/File/Demo1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/File/Demo1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/file/Demo1.java" afterDir="false" />
-    </list>
+    <list default="true" id="9f1b12f4-4ccd-4692-8a2e-75d8fa6f99c8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,15 +27,15 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Demo5">
     <configuration name="Demo1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="file.Demo1" />
@@ -117,7 +108,6 @@
         <item itemvalue="Application.Demo4" />
         <item itemvalue="Application.Demo3" />
         <item itemvalue="Application.Demo2" />
-        <item itemvalue="Application.file.Demo1" />
       </list>
     </recent_temporary>
   </component>
@@ -129,7 +119,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1659851859159</updated>
-      <workItem from="1659851860715" duration="1553000" />
+      <workItem from="1659851860715" duration="2425000" />
     </task>
     <servers />
   </component>
