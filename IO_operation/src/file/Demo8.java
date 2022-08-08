@@ -1,6 +1,7 @@
 package file;
 
 import java.io.File;
+import java.io.IOException;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,9 +34,9 @@ public class Demo8 {
                 scanDir(file, token, fileList);
             } else {
                 // 如果是符合条件的文件就记录
-                System.out.println(file.getName());
+                System.out.println(file.getPath());
                 if (file.getName().contains(token)) {
-                    fileList.add(file.getAbsoluteFile());
+                    fileList.add(file);
                 }
             }
         }

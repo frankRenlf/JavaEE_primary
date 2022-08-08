@@ -77,11 +77,7 @@ public class Demo11 {
         try (InputStream is = new FileInputStream(src)) {
             Scanner sc = new Scanner(is, StandardCharsets.UTF_8);
             try (PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream(dest), StandardCharsets.UTF_8))) {
-
                 while (sc.hasNextLine()) {
-                    // 获取读取到的长度
-                    // 值为-1表示没有数据读出
-                    // 把读到的length个字节写入到输出流
                     pw.println(sc.nextLine());
                 }
 //                pw.flush();
