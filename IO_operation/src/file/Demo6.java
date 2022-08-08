@@ -24,7 +24,7 @@ public class Demo6 {
     public static void main(String[] args) {
         InputStream is = null;
         try {
-            is = new FileInputStream("./src/files/change.txt");
+            is = new FileInputStream("./src/files/change");
             Scanner sc = new Scanner(is, StandardCharsets.UTF_8);
             while (sc.hasNext()) {
                 System.out.println(sc.nextLine());

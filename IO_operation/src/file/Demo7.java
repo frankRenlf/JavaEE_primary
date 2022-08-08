@@ -18,7 +18,7 @@ import java.nio.charset.StandardCharsets;
 public class Demo7 {
 
     public static void main(String[] args) throws IOException {
-        OutputStream os = new FileOutputStream("./src/files/change.txt");
+        OutputStream os = new FileOutputStream("./src/files/change");
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(os, StandardCharsets.UTF_8);
         PrintWriter pw = new PrintWriter(outputStreamWriter);
         pw.println("123");

@@ -1,6 +1,8 @@
 package file;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -10,12 +12,14 @@ import java.util.Scanner;
  * @version : 1.0
  * @Project : IO_operation
  * @Package : file
- * @createTime : 2022/8/8 16:45
+ * @createTime : 2022/8/8 16:54
  * @Email : sc19lr@leeds.ac.uk
  * @github : https://github.com/frankRenlf
  * @Description :
  */
-public class Demo10 {
+public class Demo11 {
+
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         // 接收源文件目录
@@ -65,50 +69,26 @@ public class Demo10 {
             }
         }
 
-        // 复制过程
+        copyFile(sourceFile, destFile);
 
-        InputStream inputStream = null;
-        OutputStream outputStream = null;
-        try {
-            // 1. 读取源文件
-            inputStream = new FileInputStream(sourceFile);
-            // 2. 输出流
-            outputStream = new FileOutputStream(destFile);
-            // 定义一个缓冲区
-            byte[] byes = new byte[1024];
-            int length;
-            while (true) {
-                // 获取读取到的长度
-                length = inputStream.read(byes);
-                // 值为-1表示没有数据读出
-                if (length == -1) {
-                    break;
+    }
+
+    private static void copyFile(File src, File dest) {
+        try (InputStream is = new FileInputStream(src)) {
+            Scanner sc = new Scanner(is, StandardCharsets.UTF_8);
+            try (PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream(dest), StandardCharsets.UTF_8))) {
+
+                while (sc.hasNextLine()) {
+                    // 获取读取到的长度
+                    // 值为-1表示没有数据读出
+                    // 把读到的length个字节写入到输出流
+                    pw.println(sc.nextLine());
                 }
-                // 把读到的length个字节写入到输出流
-                outputStream.write(byes, 0, length);
+//                pw.flush();
             }
-            // 将输出流中的数据写入文件
-            outputStream.flush();
-            System.out.println("复制成功。" + destFile.getAbsolutePath());
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            // 关闭输入流
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            // 关闭输出流
-            if (outputStream != null) {
-                try {
-                    outputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
+
 }

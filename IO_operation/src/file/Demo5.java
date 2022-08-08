@@ -20,7 +20,7 @@ public class Demo5 {
     public static void main(String[] args) throws IOException {
         File file = new File("./src/files/test.txt");
         file.createNewFile();
-        System.out.println(file.renameTo(new File("./src/files/change.txt")));
+        System.out.println(file.renameTo(new File("./src/files/change")));
     }
 
 }

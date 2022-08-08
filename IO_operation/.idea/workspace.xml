@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f1b12f4-4ccd-4692-8a2e-75d8fa6f99c8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/file/Demo9.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/file/Demo11.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IO_operation/file/Demo5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IO_operation/file/Demo5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/IO_operation/file/Demo6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IO_operation/file/Demo6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IO_operation/file/Demo7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IO_operation/file/Demo7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IO_operation/file/Demo9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IO_operation/file/Demo9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IO_operation/files/change.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/Demo10.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/file/Demo10.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/Demo5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/file/Demo5.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/file/Demo6.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/file/Demo6.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/Demo7.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/file/Demo7.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/Demo9.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/file/Demo9.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/files/change.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/files/change" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/files/toDoList" beforeDir="false" afterPath="$PROJECT_DIR$/src/files/toDoList" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,9 +51,9 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Demo9">
-    <configuration name="Demo4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="file.Demo4" />
+  <component name="RunManager" selected="Application.Demo11">
+    <configuration name="Demo11" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="file.Demo11" />
       <module name="IO_operation" />
       <extension name="coverage">
         <pattern>
@@ -55,8 +65,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Demo6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="file.Demo6" />
+    <configuration name="Demo4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="file.Demo4" />
       <module name="IO_operation" />
       <extension name="coverage">
         <pattern>
@@ -109,11 +119,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Demo11" />
         <item itemvalue="Application.Demo9" />
         <item itemvalue="Application.Demo8" />
         <item itemvalue="Application.Demo4" />
         <item itemvalue="Application.Demo7" />
-        <item itemvalue="Application.Demo6" />
       </list>
     </recent_temporary>
   </component>
@@ -126,7 +136,7 @@
       <option name="presentableId" value="Default" />
       <updated>1659851859159</updated>
       <workItem from="1659851860715" duration="2425000" />
-      <workItem from="1659929623849" duration="5732000" />
+      <workItem from="1659929623849" duration="8209000" />
     </task>
     <servers />
   </component>

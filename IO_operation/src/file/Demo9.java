@@ -21,7 +21,7 @@ import java.util.Scanner;
 public class Demo9 {
 
     public static void main(String[] args) {
-        try (InputStream is = new FileInputStream("./src/files/change.txt")) {
+        try (InputStream is = new FileInputStream("./src/files/change")) {
             Scanner sc = new Scanner(is, StandardCharsets.UTF_8);
             while (sc.hasNext()) {
                 System.out.println(sc.nextLine());
