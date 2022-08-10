@@ -34,7 +34,7 @@ public class Demo8 {
                 scanDir(file, token, fileList);
             } else {
                 // 如果是符合条件的文件就记录
-                System.out.println(file.getPath());
+                System.out.println(file.getAbsolutePath());
                 if (file.getName().contains(token)) {
                     fileList.add(file);
                 }
