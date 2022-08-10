@@ -76,7 +76,7 @@ public class Demo11 {
     private static void copyFile(File src, File dest) {
         try (InputStream is = new FileInputStream(src)) {
             Scanner sc = new Scanner(is, StandardCharsets.UTF_8);
-            try (PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream(dest), StandardCharsets.UTF_8))) {
+            try (PrintWriter pw = new PrintWriter(new FileOutputStream(dest), true, StandardCharsets.UTF_8)) {
                 while (sc.hasNextLine()) {
                     pw.println(sc.nextLine());
                 }
