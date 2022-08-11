@@ -1,4 +1,4 @@
-package Udp;
+package Udp.server;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -48,8 +48,8 @@ public class UdpEchoServer {
         }
     }
 
-    private String process(String request) {
-        return request;
+    public String process(String request) {
+        return "hi " + request;
     }
 
     public static void main(String[] args) throws IOException {
