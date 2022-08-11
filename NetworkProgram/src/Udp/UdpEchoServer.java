@@ -44,6 +44,7 @@ public class UdpEchoServer {
 
             socket.send(responsePacket);
             System.out.printf("[%s:%d] request=%s; response=%s\n", requestPacket.getAddress().toString(), requestPacket.getPort(), request, response);
+            System.out.printf("requestPacket=%s; responsePacket=%s\n", requestPacket, responsePacket);
         }
     }
 
