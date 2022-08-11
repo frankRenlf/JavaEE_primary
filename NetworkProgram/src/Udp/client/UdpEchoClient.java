@@ -47,7 +47,6 @@ public class UdpEchoClient {
             // convert message to string
             String response = new String(responsePacket.getData(),0,responsePacket.getLength());
             System.out.printf("[%s:%d] request=%s; response=%s\n", requestPacket.getAddress().toString(), requestPacket.getPort(), request, response);
-            System.out.printf("requestPacket=%s; responsePacket=%s\n", requestPacket, responsePacket);
 
         }
     }

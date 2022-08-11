@@ -29,7 +29,7 @@ public class UdpDictServer extends UdpEchoServer {
 
     @Override
     public String process(String request) {
-        return dict.getOrDefault(request,"Null");
+        return dict.getOrDefault(request,"我也不会");
     }
 
     public static void main(String[] args) throws IOException {

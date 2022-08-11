@@ -40,11 +40,10 @@ public class UdpEchoServer {
             // process it
             String response = process(request);
             // construct datagram packet object
-            DatagramPacket responsePacket = new DatagramPacket(response.getBytes(), response.length(), requestPacket.getSocketAddress());
+            DatagramPacket responsePacket = new DatagramPacket(response.getBytes(), response.getBytes().length, requestPacket.getSocketAddress());
 
             socket.send(responsePacket);
             System.out.printf("[%s:%d] request=%s; response=%s\n", requestPacket.getAddress().toString(), requestPacket.getPort(), request, response);
-            System.out.printf("requestPacket=%s; responsePacket=%s\n", requestPacket, responsePacket);
         }
     }
 
