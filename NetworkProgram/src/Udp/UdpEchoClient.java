@@ -1,6 +1,8 @@
 package Udp;
 
-import java.net.DatagramPacket;
+import java.io.IOException;
+import java.net.*;
+import java.util.Scanner;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,13 +18,41 @@ import java.net.DatagramPacket;
  */
 public class UdpEchoClient {
 
-    private DatagramPacket packet = null;
+    private DatagramSocket socket = null;
 
-    public DatagramPacket getPacket() {
-        return packet;
+    public DatagramSocket getPacket() {
+        return socket;
     }
 
-    public UdpEchoClient() {
-//        this.packet = new DatagramPacket();
+    public UdpEchoClient() throws SocketException {
+        socket = new DatagramSocket();
     }
+
+    public void start() throws IOException {
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.print("> ");
+            String request = sc.next();
+
+            // set dest: ip, port.
+            DatagramPacket requestPacket = new DatagramPacket(request.getBytes(), request.getBytes().length, InetAddress.getByName("127.0.0.1"), 8000);
+
+            // send message to server
+            socket.send(requestPacket);
+
+            // get response message
+            DatagramPacket responsePacket = new DatagramPacket(new byte[4096],4096);
+            socket.receive(responsePacket);
+
+            // convert message to string
+            String response = new String(responsePacket.getData(),0,responsePacket.getLength());
+            System.out.printf("[%s:%d] request=%s; response=%s\n", requestPacket.getAddress().toString(), requestPacket.getPort(), request, response);
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
+        UdpEchoClient client = new UdpEchoClient();
+        client.start();
+    }
+
 }
