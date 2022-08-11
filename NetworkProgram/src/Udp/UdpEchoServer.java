@@ -51,10 +51,10 @@ public class UdpEchoServer {
         return request;
     }
 
-    public static void main(String[] args) throws SocketException {
-        // start server, port 0-65535, system contains 0-1024, 
+    public static void main(String[] args) throws IOException {
+        // start server, port 0-65535, system contains 0-1024,
         UdpEchoServer server = new UdpEchoServer(8000);
-
+        server.start();
     }
 
 }
