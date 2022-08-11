@@ -40,9 +40,9 @@ public class Demo11 {
             }
         });
         t2.start();
-
-        t1.start();
         t2.join();
+        t1.start();
+
 
     }
 
