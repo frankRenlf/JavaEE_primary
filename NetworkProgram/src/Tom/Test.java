@@ -1,4 +1,4 @@
-package network;
+package Tom;
 
 import java.util.Scanner;
 
