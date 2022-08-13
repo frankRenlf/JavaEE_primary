@@ -33,17 +33,26 @@ public class UdpEchoServer {
         System.out.println("UDP Echo Server start");
         while (true) {
             // read request from client
-            DatagramPacket requestPacket = new DatagramPacket(new byte[4096], 4096);
+            DatagramPacket requestPacket = new DatagramPacket(new byte[4096],
+                    4096);
             socket.receive(requestPacket);
             // receive request and explain it, then turn the datagram packet to string
-            String request = new String(requestPacket.getData(), 0, requestPacket.getLength());
+            String request = new String(requestPacket.getData(),
+                    0,
+                    requestPacket.getLength());
             // process it
             String response = process(request);
             // construct datagram packet object
-            DatagramPacket responsePacket = new DatagramPacket(response.getBytes(), response.getBytes().length, requestPacket.getSocketAddress());
+            DatagramPacket responsePacket = new DatagramPacket(response.getBytes(),
+                    response.getBytes().length,
+                    requestPacket.getSocketAddress());
 
             socket.send(responsePacket);
-            System.out.printf("[%s:%d] request=%s; response=%s\n", requestPacket.getAddress().toString(), requestPacket.getPort(), request, response);
+            System.out.printf("[%s:%d] request=%s; response=%s\n",
+                    requestPacket.getAddress().toString(),
+                    requestPacket.getPort(),
+                    request,
+                    response);
         }
     }
 
