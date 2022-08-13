@@ -69,6 +69,8 @@ public class TcpEchoServer {
                         request,
                         response);
             }
+        } finally {
+            clientSocket.close();
         }
     }
 
