@@ -35,18 +35,28 @@ public class UdpEchoClient {
             String request = sc.next();
 
             // set dest: ip, port.
-            DatagramPacket requestPacket = new DatagramPacket(request.getBytes(), request.getBytes().length, InetAddress.getByName("127.0.0.1"), 8000);
+            DatagramPacket requestPacket = new DatagramPacket(request.getBytes(),
+                    request.getBytes().length,
+                    InetAddress.getByName("127.0.0.1"),
+                    8000);
 
             // send message to server
             socket.send(requestPacket);
 
             // get response message
-            DatagramPacket responsePacket = new DatagramPacket(new byte[4096],4096);
+            DatagramPacket responsePacket = new DatagramPacket(new byte[4096],
+                    4096);
             socket.receive(responsePacket);
 
             // convert message to string
-            String response = new String(responsePacket.getData(),0,responsePacket.getLength());
-            System.out.printf("[%s:%d] request=%s; response=%s\n", requestPacket.getAddress().toString(), requestPacket.getPort(), request, response);
+            String response = new String(responsePacket.getData(),
+                    0,
+                    responsePacket.getLength());
+            System.out.printf("[%s:%d] request=%s; response=%s\n",
+                    requestPacket.getAddress().toString(),
+                    requestPacket.getPort(),
+                    request,
+                    response);
 
         }
     }
