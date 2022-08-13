@@ -7,6 +7,9 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created with IntelliJ IDEA.
@@ -30,10 +33,33 @@ public class TcpEchoServer {
 
     public void start() throws IOException {
         System.out.println("Server is running");
+        ExecutorService service = Executors.newCachedThreadPool();
         while (true) {
             // build connection
             Socket clientSocket = serverSocket.accept();
-            processConnect(clientSocket);
+
+            // demo1
+//            processConnect(clientSocket);
+
+            // demo2
+//            Thread t = new Thread(() -> {
+//                try {
+//                    processConnect(clientSocket);
+//                } catch (IOException e) {
+//                    throw new RuntimeException(e);
+//                }
+//            });
+//            t.start();
+
+            //demo3
+            service.submit(() -> {
+                try {
+                    processConnect(clientSocket);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+
         }
     }
 
@@ -56,7 +82,7 @@ public class TcpEchoServer {
                     break;
                 }
                 // 1. read the request
-                String request = scanner.next();
+                String request = scanner.nextLine();
                 // 2. process the request
                 String response = process(request);
                 // 3.write response to client
@@ -74,7 +100,7 @@ public class TcpEchoServer {
         }
     }
 
-    private String process(String request) {
+    public String process(String request) {
         return "Hi " + request;
     }
 

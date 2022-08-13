@@ -37,12 +37,12 @@ public class TcpEchoClient {
             while (true) {
                 // 1. read data form console
                 System.out.print("> ");
-                String request = order.next();
+                String request = order.nextLine();
                 // 2. send request to server
                 printWriter.println(request);
                 printWriter.flush();
                 // 3. read response from server
-                String response = scanner.next();
+                String response = scanner.nextLine();
                 // print result
                 System.out.printf("request: %s; response: %s\n", request, response);
 
