@@ -31,14 +31,15 @@ public class TcpEchoClient {
         Scanner order = new Scanner(System.in);
         try (InputStream inputStream = socket.getInputStream();
              OutputStream outputStream = socket.getOutputStream()) {
+            System.out.println("client is running");
             Scanner scanner = new Scanner(inputStream);
             PrintWriter printWriter = new PrintWriter(outputStream);
             while (true) {
                 // 1. read data form console
                 System.out.print("> ");
-                String request = scanner.next();
+                String request = order.next();
                 // 2. send request to server
-                printWriter.write(request);
+                printWriter.println(request);
                 printWriter.flush();
                 // 3. read response from server
                 String response = scanner.next();

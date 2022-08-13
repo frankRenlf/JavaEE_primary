@@ -60,7 +60,7 @@ public class TcpEchoServer {
                 // 2. process the request
                 String response = process(request);
                 // 3.write response to client
-                printWriter.write(response);
+                printWriter.println(response);
                 // flush
                 printWriter.flush();
                 System.out.printf("[%s:%d] request: %s;response: %s connection\n",
@@ -73,7 +73,7 @@ public class TcpEchoServer {
     }
 
     private String process(String request) {
-        return "Hi" + request;
+        return "Hi " + request;
     }
 
     public static void main(String[] args) throws IOException {
