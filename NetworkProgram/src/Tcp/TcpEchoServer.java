@@ -92,7 +92,7 @@ public class TcpEchoServer {
 //                printWriter.println(response);
 //                // flush
 //                printWriter.flush();
-                System.out.printf("[%s:%d] request: ;response: %s connection\n",
+                System.out.printf("[%s:%d] request: ;response: %s\n",
                         clientSocket.getInetAddress().toString(),
                         clientSocket.getPort(),
                         response);
