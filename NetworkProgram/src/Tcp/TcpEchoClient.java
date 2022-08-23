@@ -24,7 +24,7 @@ public class TcpEchoClient {
     private Socket socket = null;
 
     public TcpEchoClient(int port) throws IOException {
-        this.socket = new Socket("127.0.0.1", port);
+        this.socket = new Socket("127.0.0.1", port, null, 8080);
     }
 
     public void start() {

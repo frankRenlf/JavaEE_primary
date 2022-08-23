@@ -26,10 +26,10 @@ public class TcpDictServer extends TcpEchoServer {
 
     private Map<String, String> map = null;
 
-    @Override
-    public String process(String request) {
-        return map.getOrDefault(request, "Not found");
-    }
+//    @Override
+//    public String process(String request) {
+//        return map.getOrDefault(request, "Not found");
+//    }
 
     public static void main(String[] args) throws IOException {
         TcpDictServer server = new TcpDictServer(8000);

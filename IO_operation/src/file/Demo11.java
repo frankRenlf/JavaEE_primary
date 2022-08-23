@@ -20,13 +20,17 @@ import java.util.Scanner;
 public class Demo11 {
 
 
-    public void start(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public void start(Scanner scanner, PrintWriter printWriter) {
         // 接收源文件目录
-        System.out.println("请输入源文件的路径：");
-        String sourcePath = scanner.next();
+
+//        printWriter.println("请输入源文件的路径：");
+//        printWriter.flush();
+        String sourcePath = scanner.nextLine();
         if (sourcePath == null || sourcePath.equals("")) {
-            System.out.println("源文路径不能为空。");
+
+            printWriter.println("源文路径不能为空。");
+            // flush
+            printWriter.flush();
             return;
         }
         // 实例源文件
@@ -34,20 +38,28 @@ public class Demo11 {
         // 校验合法性
         // 源文件不存在
         if (!sourceFile.exists()) {
-            System.out.println("输入的源文件不存在，请检查。");
+            printWriter.println("输入的源文件不存在，请检查。");
+            // flush
+            printWriter.flush();
             return;
         }
         // 源路径对应的是一个目录
         if (sourceFile.isDirectory()) {
-            System.out.println("输入的源文件是一个目录，请检查。");
+            printWriter.println("输入的源文件是一个目录，请检查。");
+            // flush
+            printWriter.flush();
             return;
         }
 
         // 输入目标路径
-        System.out.println("请输入目标路径：");
-        String destPath = scanner.next();
+        printWriter.println("请输入目标路径：");
+        // flush
+        printWriter.flush();
+        String destPath = scanner.nextLine();
         if (destPath == null || destPath.equals("")) {
-            System.out.println("目标路径不能为空。");
+            printWriter.println("目标路径不能为空。");
+            // flush
+            printWriter.flush();
             return;
         }
         File destFile = new File(destPath);
@@ -56,20 +68,29 @@ public class Demo11 {
         if (destFile.exists()) {
             // 是一个目录
             if (destFile.isDirectory()) {
-                System.out.println("输入的目标路径是一个目录，请检查。");
+                printWriter.println("输入的目标路径是一个目录，请检查。");
+                // flush
+                printWriter.flush();
             }
             // 是一个文件
             if (destFile.isFile()) {
-                System.out.println("文件已存在，是否覆盖，y/n?");
-                String input = scanner.next();
-                if (input != null && input.toLowerCase().equals("")) {
-                    System.out.println("停止复制。");
+                printWriter.println("文件已存在，是否覆盖，y/n?");
+                // flush
+                printWriter.flush();
+                String input = scanner.nextLine();
+                if (input != null && input.toLowerCase().equals("n")) {
+                    printWriter.println("停止复制。");
+                    // flush
+                    printWriter.flush();
                     return;
                 }
             }
         }
 
         copyFile(sourceFile, destFile);
+        printWriter.println("copy success");
+        // flush
+        printWriter.flush();
 
     }
 

@@ -1,5 +1,7 @@
 package Tcp;
 
+import file.Demo11;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -82,17 +84,16 @@ public class TcpEchoServer {
                     break;
                 }
                 // 1. read the request
-                String request = scanner.nextLine();
+//                String request = scanner.nextLine();
                 // 2. process the request
-                String response = process(request);
+                String response = process(scanner,printWriter);
                 // 3.write response to client
-                printWriter.println(response);
-                // flush
-                printWriter.flush();
-                System.out.printf("[%s:%d] request: %s;response: %s connection\n",
+//                printWriter.println(response);
+//                // flush
+//                printWriter.flush();
+                System.out.printf("[%s:%d] request: ;response: %s connection\n",
                         clientSocket.getInetAddress().toString(),
                         clientSocket.getPort(),
-                        request,
                         response);
             }
         } finally {
@@ -100,8 +101,10 @@ public class TcpEchoServer {
         }
     }
 
-    public String process(String request) {
-        return "Hi " + request;
+    public String process(Scanner scanner,PrintWriter printWriter) {
+        Demo11 demo11 = new Demo11();
+        demo11.start(scanner,printWriter);
+        return "success";
     }
 
     public static void main(String[] args) throws IOException {
