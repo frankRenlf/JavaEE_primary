@@ -20,7 +20,7 @@ import java.util.Scanner;
 public class Demo11 {
 
 
-    public static void main(String[] args) {
+    public void start(String[] args) {
         Scanner scanner = new Scanner(System.in);
         // 接收源文件目录
         System.out.println("请输入源文件的路径：");
