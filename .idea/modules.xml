@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/FrontEnd/FrontEnd.iml" filepath="$PROJECT_DIR$/FrontEnd/FrontEnd.iml" />
       <module fileurl="file://$PROJECT_DIR$/IO_operation/IO_operation.iml" filepath="$PROJECT_DIR$/IO_operation/IO_operation.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/JavaEE_primary.iml" filepath="$PROJECT_DIR$/.idea/JavaEE_primary.iml" />
       <module fileurl="file://$PROJECT_DIR$/NetworkProgram/NetworkProgram.iml" filepath="$PROJECT_DIR$/NetworkProgram/NetworkProgram.iml" />
-      <module fileurl="file://$PROJECT_DIR$/class1/class1.iml" filepath="$PROJECT_DIR$/class1/class1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Thead/Thead.iml" filepath="$PROJECT_DIR$/Thead/Thead.iml" />
     </modules>
   </component>
 </project>
