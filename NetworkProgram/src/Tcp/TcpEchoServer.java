@@ -74,14 +74,14 @@ public class TcpEchoServer {
             Scanner scanner = new Scanner(inputStream);
             PrintWriter printWriter = new PrintWriter(outputStream);
             //长连接写法
-            while (true) {
-                if (!scanner.hasNextLine()) {
-                    // 连接断开
-                    System.out.printf("[%s:%d] break connection\n",
-                            clientSocket.getInetAddress().toString(),
-                            clientSocket.getPort());
-                    break;
-                }
+//            while (true) {
+//                if (!scanner.hasNextLine()) {
+//                    // 连接断开
+//                    System.out.printf("[%s:%d] break connection\n",
+//                            clientSocket.getInetAddress().toString(),
+//                            clientSocket.getPort());
+//                    break;
+//                }
                 // 1. read the request
 //                String request = scanner.nextLine();
                 // 2. process the request
@@ -94,7 +94,7 @@ public class TcpEchoServer {
                         clientSocket.getInetAddress().toString(),
                         clientSocket.getPort(),
                         response);
-            }
+//            }
         } finally {
             clientSocket.close();
         }
