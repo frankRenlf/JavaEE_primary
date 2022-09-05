@@ -52,8 +52,6 @@ public class TcpEchoServer {
 //                }
 //            });
 //            t.start();
-
-
             //demo3
             service.submit(() -> {
                 try {
@@ -77,7 +75,7 @@ public class TcpEchoServer {
             PrintWriter printWriter = new PrintWriter(outputStream);
             //长连接写法
             while (true) {
-                if (!scanner.hasNext()) {
+                if (!scanner.hasNextLine()) {
                     // 连接断开
                     System.out.printf("[%s:%d] break connection\n",
                             clientSocket.getInetAddress().toString(),
