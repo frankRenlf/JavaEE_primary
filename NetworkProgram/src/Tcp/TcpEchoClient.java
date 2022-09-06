@@ -40,8 +40,8 @@ public class TcpEchoClient {
                 if (!check(sourcePath)) {
                     break;
                 }
-                System.out.print("> ");
-                System.out.println(scanner.nextLine());
+//                System.out.print("> ");
+//                System.out.println(scanner.nextLine());
                 System.out.print("> ");
                 // 3. read response from server
                 String dest = order.nextLine();
@@ -55,7 +55,7 @@ public class TcpEchoClient {
 //                System.out.println(scanner.nextLine());
                 // print result
                 System.out.printf("request: %s; response: %s\n", sourcePath, dest);
-                System.out.println(scanner.nextLine());
+//                System.out.println(scanner.nextLine());
                 System.out.println(scanner.nextLine());
 //                System.out.println(scanner.nextLine());
             }
