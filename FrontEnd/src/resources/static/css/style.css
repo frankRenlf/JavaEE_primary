@@ -1,0 +1,43 @@
+#frontend{
+    color: brown;
+}
+.wt{
+    border: 5px;
+    color: gray;
+}
+
+.tmp{
+    font-size: 30px;
+}
+
+/* .cat li a{
+    color:aqua
+} */
+
+.cat>a{
+    color: green;
+}
+
+.cat>ul>li>a{
+    color: green;
+    font-size: 50px;
+}
+
+.cat>ul>p>span:hover{
+    color: red;
+}
+
+.point>a:link {
+    color: black;
+/* 去掉 a 标签的下划线 */
+    text-decoration: none; 
+}
+.point>a:visited {
+    color: green; 
+}
+.point>a:hover {
+    color: red; 
+}
+.point>a:active {
+    color: blue; 
+}
