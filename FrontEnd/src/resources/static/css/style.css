@@ -56,3 +56,10 @@
 .rem{
     text-decoration: none;
 }
+
+body{
+    background-image: url(../pages/htmlClass/Draw&Guess/guess.png);
+}
+div{
+    display:flex;
+}
