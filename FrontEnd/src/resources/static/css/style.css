@@ -23,8 +23,12 @@
     font-size: 50px;
 }
 
-.cat>ul>p>span:hover{
+.cat>ul>p>a:hover{
     color: red;
+}
+
+.cat>ul>p>a:active{
+    color: blue;
 }
 
 .point>a:link {
