@@ -41,3 +41,10 @@
 .point>a:active {
     color: blue; 
 }
+
+.test>ul>.wa{
+    color:aqua
+}
+.three>input:focus{
+    color:red;
+}
