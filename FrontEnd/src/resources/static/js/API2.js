@@ -1,5 +1,5 @@
 var addTaskButton = document.querySelector(".nav button");
-var func = function toDo() {
+var func1 = () => {
   // 1. 获取到任务内容的输入框
   var input = document.querySelector(".nav input"); // 2. 获取到输入框内容
   var taskContent = input.value; // 3. 根据内容新建一个元素节点
@@ -17,27 +17,29 @@ var func = function toDo() {
   var todo = document.querySelector(".todo");
   todo.appendChild(row);
 };
-addTaskButton.onclick = func;
-// addTaskButton.onclick = function () {
-//   // 上方的部分不变...
-//   // 5. 给 checkbox 注册点击事件
-//   checkbox.onclick = function () {
-//     //
-//     var row = this.parentNode; // 注意! 是先触发 checked 为 true, 然后再调用 onclick 函数
-//     if (this.checked) {
-//       var target = document.querySelector(".done");
-//     } else {
-//       var target = document.querySelector(".todo");
-//     }
-//     target.appendChild(row);
-//   };
-// };
-// addTaskButton.onclick = function () {
-//   // 上方的部分不变...
-//   // 6. 给删除按钮注册点击事件
-//   button.onclick = function () {
-//     var row = this.parentNode;
-//     var grandParent = row.parentNode;
-//     grandParent.removeChild(row);
-//   };
-// };
+
+addTaskButton.onclick = func1;
+var func2 = function () {
+  // 上方的部分不变...
+  // 5. 给 checkbox 注册点击事件
+  checkbox.onclick = function () {
+    //
+    var row = this.parentNode; // 注意! 是先触发 checked 为 true, 然后再调用 onclick 函数
+    if (this.checked) {
+      var target = document.querySelector(".done");
+    } else {
+      var target = document.querySelector(".todo");
+    }
+    target.appendChild(row);
+  };
+};
+
+var func3 = function () {
+  // 上方的部分不变...
+  // 6. 给删除按钮注册点击事件
+  button.onclick = function () {
+    var row = this.parentNode;
+    var grandParent = row.parentNode;
+    grandParent.removeChild(row);
+  };
+};
