@@ -13,14 +13,12 @@
     <div onclick="alert('123')">123
     </div>
     <script>
-        var num = 10;
-
-        function test() {
-            var num = 20;
-            console.log(num);
-        }
-
-        test();
+        let num = [1, 2, 3];
+        console.log(num);
+        num[-1] = 10;
+        num[100] = 1;
+        // pos,number to delete,used to replace
+        num.splice(2, 2, 0, 0);
         console.log(num);
     </script>
 
