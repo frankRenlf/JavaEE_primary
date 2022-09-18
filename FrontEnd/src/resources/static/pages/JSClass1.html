@@ -13,13 +13,46 @@
     <div onclick="alert('123')">123
     </div>
     <script>
-        let num = [1, 2, 3];
-        console.log(num);
-        num[-1] = 10;
-        num[100] = 1;
-        // pos,number to delete,used to replace
-        num.splice(2, 2, 0, 0);
-        console.log(num);
+        // let num = [1, 2, 3];
+        // console.log(num);
+        // num[-1] = 10;
+        // num[100] = 1;
+        // // pos,number to delete,used to replace
+        // num.splice(2, 2, 0, 0);
+        // console.log(num);
+        // function add(a, b) {
+        //     return a + b;
+        // }
+        // let i = 1;
+        // let j = 1;
+        // function qwer() {
+        //     i = + prompt('enter i');
+        //     j = + prompt('enter j');
+        //     return i + j;
+        // }
+        // let x = qwer();
+        // console.log(x);
+        // function rec() {
+        //     let sum = 0;
+        //     for (let i = 0; i < arguments.length; i++) {
+        //         let n = arguments[i] || 0;
+        //         sum += n;
+        //     }
+        //     return sum;
+        // }
+        // console.log(rec(1, 2, 3, 4, 5, 6, 7, 100));
+        function Con(name, type, desc) {
+            this.name = name;
+            this.type = type;
+            this.work1 = function () {
+                console.log(this.name + desc);
+            }
+        }
+        let cat = new Con('1', 'i', 'x');
+        cat.work1();
+        console.log(cat.name);
+        console.log(cat);
+        console.log(Con);
     </script>
 
 </body>123
