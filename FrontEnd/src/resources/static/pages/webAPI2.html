@@ -10,18 +10,43 @@
 
 <body>
     <img src="../images/female.png">
-</body>
+    <input class="in1" type="button" value="播放">
+    <input class="in2" type="password">
+    <input class="in3" type="button" value="display">
 
-<script>
-    let im = document.querySelector('img');
-    im.onclick = function () {
-        console.log(im.src);
-        if (im.src.indexOf('fe') >= 0) {
-            im.src = '../images/male.png';
-        } else {
-            im.src = '../images/female.png';
+    <script>
+        let im = document.querySelector('img');
+        im.onclick = function () {
+            console.log(im.src);
+            if (im.src.indexOf('fe') >= 0) {
+                im.src = '../images/male.png';
+            } else {
+                im.src = '../images/female.png';
+            }
         }
-    }
-</script>
+        var btn = document.querySelector('.in1');
+        btn.onclick = function () {
+            if (btn.value === '播放') {
+                btn.value = '暂停';
+            } else {
+                btn.value = '播放';
+            }
+        }
+        let btn2 = document.querySelector('.in2');
+        let dis = document.querySelector('.in3');
+        dis.onclick = function () {
+            console.log(dis);
+            console.log(dis.value);
+            if (dis.value == 'display') {
+                dis.value = 'hide';
+                btn2.type = 'text';
+            } else {
+                dis.value = 'display';
+                btn2.type = 'password';
+            }
+        }
+    </script>
+
+</body>
 
 </html>
