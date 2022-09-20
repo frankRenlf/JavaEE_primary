@@ -21,9 +21,10 @@
     color: #008000; 
     margin-top: 10px;
     text-align: center; 
+    /* display: flex; */
  } 
  /* 查看详情 按钮 */ 
- .blog .detail { 
+ .blog>.detail { 
     display: block; 
     width: 120px; 
     height: 40px; 
@@ -38,6 +39,6 @@
  } 
  /* 查看详情按钮的鼠标 hover 效果 */ 
  .blog .detail:hover { 
-    background-color: #000; 
+    background-color: #333; 
     color: #fff; 
  }
