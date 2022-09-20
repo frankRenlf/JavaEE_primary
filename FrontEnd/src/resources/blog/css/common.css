@@ -26,3 +26,13 @@ html, body{
     height: 40px;
     border-radius: 50%
 } 
+
+.nav .spacer {
+    width: 70%;
+}
+    /* 导航栏中的按钮 */
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 10px;
+}
