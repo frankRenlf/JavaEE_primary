@@ -73,8 +73,10 @@ html, body{
 }
     /* 用户头像 */
 .card img {
-    width: 140px;
-    height: 140px;
+    width: 100px;
+    height: 100px;
+    /* align-items: center; */
+    display: flex;
     /* border-radius: 50%; */
 }
     /* 用户名 */
