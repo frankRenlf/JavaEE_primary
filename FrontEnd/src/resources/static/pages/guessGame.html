@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input class="g" type="button" value="generate">
+        <input class="num" type="password" value="">
+        <input class="sh" type="button" value="show">
+    </div>
+    <div>
+        <input class="t" type="text">
+        <input class="s" type="button" value="guess">
+        <input class="j" type="text" value="">
+    </div>
+    <script>
+        let gen = document.querySelector('.g');
+        let te = document.querySelector('.t');
+        let gu = document.querySelector('.s');
+        let nu = document.querySelector('.num');
+        let ju = document.querySelector('.j');
+        let sho = document.querySelector('.sh');
+        let num = 0;
+        gen.onclick = function () {
+            num = guessNumber = Math.floor(Math.random() * 100) + 1;
+            nu.value = num;
+            console.log("generate: " + num);
+        }
+        sho.onclick = function () {
+            if (nu.type == 'password') {
+                nu.type = 'text';
+            } else {
+                nu.type = 'password';
+            }
+        }
+        let val = 0;
+        gu.onclick = function () {
+            val = te.value;
+            console.log("guess: " + val);
+            if (val > num) {
+                ju.value = 'bigger';
+            } else if (val < num) {
+                ju.value = 'smaller';
+            } else {
+                ju.value = 'right';
+            }
+        }
+    </script>
+</body>
+
+</html>

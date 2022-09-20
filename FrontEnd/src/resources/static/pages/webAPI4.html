@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .light {
+            color: black;
+            background-color: white;
+        }
+
+        .black {
+            color: white;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input class="light" type="button" value="white">
+    </div>
+    <script>
+        let btn = document.querySelector('input');
+        let bg = document.querySelector('div');
+        btn.onclick = function () {
+            if (btn.value == 'white') {
+                btn.value = 'black';
+                bg.className = 'black';
+            } else {
+                btn.value = 'white';
+                bg.className = 'white';
+            }
+        }
+    </script>
+</body>
+
+</html>
