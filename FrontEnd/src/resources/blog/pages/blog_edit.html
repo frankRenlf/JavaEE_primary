@@ -8,7 +8,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/blog_edit.css">
-
+    <link rel="stylesheet" href="../editor.md-master/css/editormd.min.css" />
+    <script src=""></script>
+    <script src="../editor.md-master/lib/prettify.min.js"></script>
+    <script src="../editor.md-master/lib/marked.min.js"></script>
+    <script src="../editor.md-master/editormd.js"></script>
 </head>
 
 <body>
@@ -33,5 +37,17 @@
         <div id="editor"></div>
     </div>
 </body>
+<script>
+    var editor = editormd("editor", {
+        // 这里的尺寸必须在这里设置. 设置样式会被 editormd 自动覆盖掉.
+        width: "100%",
+        // 高度 100% 意思是和父元素一样高. 要在父元素的基础上去掉标题编辑区的高度
+        height: "calc(100% - 50px)",
+        // 编辑器中的初始内容
+        markdown: "# 在这里写下一篇博客",
+        // 指定 editor.md 依赖的插件路径
+        path: "editor.md/lib/"
+    });
+</script>
 
 </html>
