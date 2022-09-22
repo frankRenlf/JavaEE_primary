@@ -42,5 +42,34 @@
 
     </div>
 </body>
+<script>
+    let un = document.querySelector('.username');
+    let pw = document.querySelector('.password');
+    let btn = document.querySelector('.submit');
+
+    btn.onclick = function () {
+        console.log(un.value + ': ' + pw.value);
+        if (un.value == 'frank' && pw.value == 'rlf') {
+            window.location.href = './blog_list.html';
+        } else {
+            if (un.value != 'frank') {
+                alert('wrong username')
+            } else if (pw.value != 'rlf') {
+                alert('Wrong password');
+            } else {
+                alert('invalid input');
+            }
+        }
+    };
+    // document.onkeydown = jump();
+
+    // btn.addEventListener("keyup", function (event) {
+    //     event.preventDefault()
+    //     if (event.keyCode === 13) {
+    //         jump();
+    //     }
+    // })
+
+</script>
 
 </html>
