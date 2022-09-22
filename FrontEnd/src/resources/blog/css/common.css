@@ -52,13 +52,13 @@ html, body{
     /* 左侧部分, 用来放置用户信息 */
 .container-left {
     height: 100%;
-    width: 200px;
+    width: 20%;
 }
     /* 右侧部分, 用来放置正文 */
 .container-right {
     height: 100%;
     /* 和左侧部分中间留出 5px 间隙 */
-    width: 795px;
+    width: 75%;
     /* 如果内容溢出就自动加上滚动条 */
     overflow: auto;
     background-color: rgba(255, 255, 255, 0.8);

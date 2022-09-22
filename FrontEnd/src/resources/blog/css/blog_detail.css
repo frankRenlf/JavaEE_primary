@@ -13,7 +13,7 @@
     text-align: center;
 }
     /* 博客内容段落 */
-.blog-content p {
+.blog-content .text {
     text-indent: 2em;
     padding: 10px 0;
 }
