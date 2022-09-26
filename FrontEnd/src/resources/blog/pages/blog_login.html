@@ -66,12 +66,12 @@
             }
         }
     }
-    function loginMethod() {
-        var uid = id.value;
-        var uname = un.value;
-        var upassword = pw.value;
+    function loginMethod1() {
+        let uid = id.value;
+        let uname = un.value;
+        let upassword = pw.value;
         // console.log(uname);
-        let xhr = new XMLHttpRequest();
+        var xhr = new XMLHttpRequest();
         // 2. 默认异步处理响应. 需要挂在处理响应的回调函数.
         xhr.onreadystatechange = function () {
             // readState 表示当前的状态.
@@ -85,19 +85,51 @@
                 console.log(xhr.status);
                 // responseText 属性获取 HTTP 响应 body
                 console.log(xhr.responseText);
+                if (xhr.responseText.data == true) {
+                    window.location.href = './blog_list.html';
+                }
             }
         }
         // 3. 调用 open 方法设置要访问的 url
-        xhr.open('GET', 'http://localhost/user');
-        xhr.setRequestHeader('content-type', 'application/json');
+        xhr.open('POST', 'http://localhost/user');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        let user = {
+            "id": uid,
+            "username": uname,
+            "password": upassword
+        }
+        // console.log(user);
         // 5. 调用 send 方法发送 http 请求
-        xhr.send(JSON.stringify({
-            id: uid,
-            username: uname,
-            password: upassword
-        }));
+        xhr.send(JSON.stringify(user));
     }
-    btn.onclick = loginMethod;
+    btn.onclick = function () {
+        let uid = id.value;
+        let uname = un.value;
+        let upassword = pw.value;
+        let user = {
+            "id": uid,
+            "username": uname,
+            "password": upassword
+        }
+        ajax('POST', 'http://localhost/user', user)
+    };
+    function ajax(method, url, maindata) {
+        let uid = id.value;
+        let uname = un.value;
+        let upassword = pw.value;
+        var xhr = new XMLHttpRequest();
+        xhr.open(method, url);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify(maindata));
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var msg = JSON.parse(xhr.responseText);
+                if (msg.data == true) {
+                    window.location.href = './blog_list.html';
+                }
+            }
+        }
+    }
     // document.onkeydown = jump();
 
     // btn.addEventListener("keyup", function (event) {
