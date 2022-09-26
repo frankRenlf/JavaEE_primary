@@ -9,7 +9,24 @@
 </head>
 
 <body>
-
+    <input type="text" class="text1">
+    <input type="button" value="button" class="btn1">
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        let func1 = function convey() {
+            $.ajax({
+                type: "GET",
+                url: 'http://localhost/user/60',
+                success: function (body) {
+                    let con = document.querySelector('.text1');
+                    console.log(body.data);
+                    con.value = body.data.id;
+                }
+            });
+        }
+        let btn = document.querySelector('.btn1');
+        btn.oncliick = func1();
+    </script>
 </body>
 
 </html>
