@@ -66,53 +66,17 @@
             }
         }
     }
-    function loginMethod1() {
-        let uid = id.value;
-        let uname = un.value;
-        let upassword = pw.value;
-        // console.log(uname);
-        var xhr = new XMLHttpRequest();
-        // 2. 默认异步处理响应. 需要挂在处理响应的回调函数.
-        xhr.onreadystatechange = function () {
-            // readState 表示当前的状态.
-            // 0: 请求未初始化
-            // 1: 服务器连接已建立
-            // 2: 请求已接收
-            // 3: 请求处理中
-            // 4: 请求已完成，且响应已就绪
-            if (xhr.readyState == 4) {
-                // status 属性获取 HTTP 响应状态码
-                console.log(xhr.status);
-                // responseText 属性获取 HTTP 响应 body
-                console.log(xhr.responseText);
-                if (xhr.responseText.data == true) {
-                    window.location.href = './blog_list.html';
-                }
-            }
-        }
-        // 3. 调用 open 方法设置要访问的 url
-        xhr.open('POST', 'http://localhost/user');
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        let user = {
-            "id": uid,
-            "username": uname,
-            "password": upassword
-        }
-        // console.log(user);
-        // 5. 调用 send 方法发送 http 请求
-        xhr.send(JSON.stringify(user));
-    }
-    btn.onclick = function () {
-        let uid = id.value;
-        let uname = un.value;
-        let upassword = pw.value;
-        let user = {
-            "id": uid,
-            "username": uname,
-            "password": upassword
-        }
-        ajax('POST', 'http://localhost/user', user)
-    };
+    // btn.onclick = function () {
+    //     let uid = id.value;
+    //     let uname = un.value;
+    //     let upassword = pw.value;
+    //     let user = {
+    //         "id": uid,
+    //         "username": uname,
+    //         "password": upassword
+    //     }
+    //     ajax('POST', 'http://localhost/user', user)
+    // };
     function ajax(method, url, maindata) {
         let uid = id.value;
         let uname = un.value;
@@ -130,6 +94,31 @@
             }
         }
     }
+    $('.submit').on('click', function () {
+        let uid = id.value;
+        let uname = un.value;
+        let upassword = pw.value;
+        let user = {
+            "id": uid,
+            "username": uname,
+            "password": upassword
+        }
+        $.ajax({
+            type: "POST",
+            contentType: 'application/json',
+            data: JSON.stringify(user),
+            url: 'http://localhost/user',
+            success: function (body) {
+                let con = document.querySelector('.text1');
+                console.log(typeof (body.data));
+                console.log(body);
+                if (body.data) {
+                    window.location.href = './blog_list.html';
+                }
+                // con.value = body.data.id;
+            }
+        });
+    });
     // document.onkeydown = jump();
 
     // btn.addEventListener("keyup", function (event) {
