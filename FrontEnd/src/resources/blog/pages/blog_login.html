@@ -48,7 +48,7 @@
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script>
-    let id = document.querySelector('.useid');
+    let id = document.querySelector('.userid');
     let un = document.querySelector('.username');
     let pw = document.querySelector('.password');
     let btn = document.querySelector('.submit');
@@ -71,23 +71,31 @@
         var uname = un.value;
         var upassword = pw.value;
         console.log(uname);
-        $.ajax({
-            type: "GET",
-            dataType: "json",
-            url: "http://localhost/user",
-            data: { "id": uid, "username": uname, "password": upassword },
-
-            success: function (data) {
-                //回调成功函数
-                // console.log(data);
-                if (data.data == true) {
-                    window.location.href = './blog_list.html';
-                }
-            },
-            error: function () {
-                // $("#msg_span").html('<font color="red">network connect error</font>');
+        let httpRequest = new XMLHttpRequest();
+        // 2. 默认异步处理响应. 需要挂在处理响应的回调函数.
+        httpRequest.onreadystatechange = function () {
+            // readState 表示当前的状态.
+            // 0: 请求未初始化
+            // 1: 服务器连接已建立
+            // 2: 请求已接收
+            // 3: 请求处理中
+            // 4: 请求已完成，且响应已就绪
+            if (httpRequest.readyState == 4) {
+                // status 属性获取 HTTP 响应状态码
+                console.log(httpRequest.status);
+                // responseText 属性获取 HTTP 响应 body
+                console.log(httpRequest.responseText);
             }
-        });
+        }
+        // 3. 调用 open 方法设置要访问的 url
+        httpRequest.open('GET', 'http://localhost/user');
+        httpRequest.setRequestHeader('Content-Type', 'application/json');
+        // 5. 调用 send 方法发送 http 请求
+        httpRequest.send(JSON.stringify({
+            id: uid,
+            username: uname,
+            password: upassword
+        }));
     }
     btn.onclick = loginMethod;
     // document.onkeydown = jump();
