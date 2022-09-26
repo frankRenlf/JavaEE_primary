@@ -28,6 +28,10 @@
         <div class="login-dialog">
             <h3>登陆</h3>
             <div class="row">
+                <span>ID</span>
+                <input type="text" class="userid">
+            </div>
+            <div class="row">
                 <span>用户名</span>
                 <input type="text" class="username">
             </div>
@@ -42,12 +46,13 @@
 
     </div>
 </body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script>
+    let id = document.querySelector('.useid');
     let un = document.querySelector('.username');
     let pw = document.querySelector('.password');
     let btn = document.querySelector('.submit');
-
-    btn.onclick = function () {
+    function staticMsg() {
         console.log(un.value + ': ' + pw.value);
         if (un.value == 'frank' && pw.value == 'rlf') {
             window.location.href = './blog_list.html';
@@ -60,15 +65,39 @@
                 alert('invalid input');
             }
         }
-    };
+    }
+    function loginMethod() {
+        var uid = id.value;
+        var uname = un.value;
+        var upassword = pw.value;
+        console.log(uname);
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "http://localhost/user",
+            data: { "id": uid, "username": uname, "password": upassword },
+
+            success: function (data) {
+                //回调成功函数
+                // console.log(data);
+                if (data.data == true) {
+                    window.location.href = './blog_list.html';
+                }
+            },
+            error: function () {
+                // $("#msg_span").html('<font color="red">network connect error</font>');
+            }
+        });
+    }
+    btn.onclick = loginMethod;
     // document.onkeydown = jump();
 
-    btn.addEventListener("keyup", function (event) {
-        event.preventDefault()
-        if (event.keyCode === 13) {
-            jump();
-        }
-    })
+    // btn.addEventListener("keyup", function (event) {
+    //     event.preventDefault()
+    //     if (event.keyCode === 13) {
+    //         jump();
+    //     }
+    // })
 
 </script>
 

@@ -27,7 +27,7 @@
     font-weight: 700;
     padding-left: 5%;
 }
-.username, .password {
+.userid, .username, .password {
     width: 50%;
     height: 40px;
     line-height: 40px;
