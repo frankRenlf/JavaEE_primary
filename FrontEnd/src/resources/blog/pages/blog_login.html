@@ -52,20 +52,6 @@
     let un = document.querySelector('.username');
     let pw = document.querySelector('.password');
     let btn = document.querySelector('.submit');
-    function staticMsg() {
-        console.log(un.value + ': ' + pw.value);
-        if (un.value == 'frank' && pw.value == 'rlf') {
-            window.location.href = './blog_list.html';
-        } else {
-            if (un.value != 'frank') {
-                alert('wrong username')
-            } else if (pw.value != 'rlf') {
-                alert('Wrong password');
-            } else {
-                alert('invalid input');
-            }
-        }
-    }
     // btn.onclick = function () {
     //     let uid = id.value;
     //     let uname = un.value;
@@ -77,23 +63,7 @@
     //     }
     //     ajax('POST', 'http://localhost/user', user)
     // };
-    function ajax(method, url, maindata) {
-        let uid = id.value;
-        let uname = un.value;
-        let upassword = pw.value;
-        var xhr = new XMLHttpRequest();
-        xhr.open(method, url);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify(maindata));
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                var msg = JSON.parse(xhr.responseText);
-                if (msg.data == true) {
-                    window.location.href = './blog_list.html';
-                }
-            }
-        }
-    }
+
     $('.submit').on('click', function () {
         let uid = id.value;
         let uname = un.value;
@@ -114,6 +84,8 @@
                 console.log(body);
                 if (body.data) {
                     window.location.href = './blog_list.html';
+                } else {
+                    alert('invalid input');
                 }
                 // con.value = body.data.id;
             }
