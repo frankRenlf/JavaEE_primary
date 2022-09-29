@@ -2,139 +2,160 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>filerobot-image-editor</title>
-    <script
-        src="https://cdn.scaleflex.it/plugins/filerobot-image-editor/3.12.17/filerobot-image-editor.min.js"></script>
-    <!-- <script src="./filerobt-image-eritor.js"></script> -->
-    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
-    <style>
+    <title>Simple Image Editor</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    </style>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Import custom stylesheet -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+    </script>
 </head>
 
 <body>
-    <img id="img" src="../../blog/images/bg.jpg" width="70%" height="50%" alt="">
-    <button id="modify">编辑</button>
+    <nav class="green">
+        <div class="nav-wrapper container">
+            <span class="nav-header">
+                Simple Image Filters
+            </span>
+            <ul class="right image-save">
+                <button class="btn btn-flat blue white-text" onclick="saveImage()">
+                    Save
+                </button>
+                <button class="btn btn-flat red white-text" onclick="resetImage()">
+                    Reset
+                </button>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hidden image that will be used for
+	holding the source image -->
+    <img id="sourceImage" crossorigin="anonymous">
+
+    <div class="image-preview">
+
+        <!-- Canvas that will hold the
+		image to be edited -->
+        <canvas id="canvas" height="0"></canvas>
+    </div>
+    <div class="container app">
+
+        <!-- Text to be shown at the beginning
+		of the application -->
+        <div class="help-text center-align">
+            <h5>Please Upload an Image to Start Editing</h5>
+        </div>
+
+        <!-- All the image controls that will be
+		used for modifying the image -->
+        <div class="image-controls">
+            <h6>Image Controls</h6>
+            <div class="row">
+                <div class="col s6">
+                    <span class="range-field">
+                        <label for="brightnessSlider">
+                            Brightness
+                        </label>
+                        <input id="brightnessSlider" type="range" value="100" min="0" max="300"
+                            onchange="applyFilter()">
+                    </span>
+                </div>
+                <div class="col s6">
+                    <span class="range-field">
+                        <label for="contrastSlider">
+                            Contrast
+                        </label>
+                        <input id="contrastSlider" type="range" value="100" min="0" max="200" onchange="applyFilter()">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s6">
+                    <span class="range-field">
+                        <label for="grayscaleSlider">
+                            Grayscale
+                        </label>
+                        <input id="grayscaleSlider" type="range" value="0" min="0" max="100" onchange="applyFilter()">
+                    </span>
+                </div>
+                <div class="col s6">
+                    <span class="range-field">
+                        <label for="saturationSlider">
+                            Saturation
+                        </label>
+                        <input id="saturationSlider" type="range" value="100" min="0" max="300"
+                            onchange="applyFilter()">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s6">
+                    <span class="range-field">
+                        <label for="sepiaSlider">
+                            Sepia
+                        </label>
+                        <input id="sepiaSlider" type="range" value="0" min="0" max="200" onchange="applyFilter()">
+                    </span>
+                </div>
+                <div class="col s6">
+                    <span class="range-field">
+                        <label for="hueRotateSlider">
+                            Hue
+                        </label>
+                        <input id="hueRotateSlider" type="range" value="0" min="0" max="360" onchange="applyFilter()">
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buttons that will be used to change
+		the values to preset ones -->
+        <div class="preset-filters">
+            <h6>Preset Filters</h6>
+            <button class="btn green" onclick="brightenFilter()">
+                Brighten
+            </button>
+            <button class="btn green" onclick="bwFilter()">
+                Black and White
+            </button>
+            <button class="btn green" onclick="funkyFilter()">
+                Funky
+            </button>
+            <button class="btn green" onclick="vintageFilter()">
+                Vintage
+            </button>
+        </div>
+
+        <!-- File control to upload a new file -->
+        <div class="file-controls">
+            <h6>File Controls</h6>
+
+            <!-- Element that will be later used to download
+			the canvas image from code -->
+            <a id="link"></a>
+
+            <!-- File Selector for uploading the image -->
+            <div class="file-field input-field">
+                <div class="btn green">
+                    <span>Upload Image</span>
+                    <input type="file" accept="image/*" onchange="uploadImage(event)">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path" type="text">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load the script for the editor -->
+    <script src="../js/app.js"></script>
 </body>
-<script>
-    window.onload = function () {
-        const modify = document.querySelector('#modify')
-        const ImageEditor = new FilerobotImageEditor( //实例化编辑器
-            {
-                tools: ['adjust', 'effects', 'filters', 'crop', 'resize', 'shapes', 'rotate', 'text'],
-                translations: {
-                    en: {
-                        'header.image_editor_title': '图片调整',
-                        'header.toggle_fullscreen': '切换全屏',
-                        'header.close_modal': '取消',
-                        'header.close': '取消',
-                        'orientation.rotate_l': '向左旋转',
-                        'orientation.rotate_r': '向右旋转',
-                        'orientation.flip_h': '左右翻转',
-                        'orientation.flip_v': '上下翻转',
-                        'toolbar.save': '嘿嘿',
-                        'toolbar.apply': '确定',
-                        'toolbar.download': '保存',
-                        'toolbar.adjust': '色调',
-                        'toolbar.cancel': '取消',
-                        'toolbar.filters': '滤镜',
-                        'toolbar.orientation': '调整方向',
-                        'toolbar.crop': '裁剪',
-                        'toolbar.resize': '大小重置',
-                        'toolbar.shapes': '形状',
-                        'toolbar.text': '添加文字',
-                        'toolbar.effects': '特效',
-                        'common.text': '文字',
-                        'common.opacity': '透明度',
-                        'common.stroke-color': '边框色',
-                        'footer.reset': '重置',
-                        'footer.undo': '向前撤销',
-                        'footer.redo': '向后撤销',
-                        'adjust.brightness': '亮度',
-                        'adjust.contrast': '对比度',
-                        'adjust.exposure': '曝光度',
-                        'adjust.saturation': '饱和度'
-                    }
-                },
-                theme: {
-                    colors: {
-                        primaryBg: '#ffffff',
-                        primaryBgHover: '#f2f2f2',
-                        secondaryBg: '#F8FAFB',
-                        secondaryBgHover: '#DFE7ED',
-                        secondaryBgOpacity: 'rgba(255,255,255, 0.75)',
-                        text: '#5D6D7E',
-                        textHover: '#1a2329',
-                        textMute: '#aaa',
-                        textWarn: '#f7931e',
-                        accent: '#D5D8DC',
-                        button: {
-                            primary: '#6879EB',
-                            secondary: '#ffffff',
-                            border: 'transparent',
-                            hover: '#5064ea',
-                            active: '#3c4ec7'
-                        },
-                        border: '#DFE7ED',
-                        borderLight: '#e1e1e1',
-                        disabledBg: 'rgba(255, 0, 0, 0.1)',
-                    },
-                    fonts: [
-                        { label: 'Arial', value: 'Arial' },
-                        { label: 'Tahoma', value: 'Tahoma' },
-                        { label: 'Times New Roman', value: 'Times New Roman' },
-                        { label: 'Courier', value: 'Courier' },
-                        { label: 'Courier New', value: 'Courier New' },
-                        { label: 'Verdana', value: 'Verdana' }
-                    ]
-                }
-            },
-            {
-                onBeforeComplete: (props) => { return false; },
-                onComplete: function (res) {
-                    document.querySelector('#img').src = res.canvas.toDataURL()
-                    axiosReq(res)
-                }
-            }
-        );
-        function axiosReq(img) { //请求部分
-            let file = dataURLtoFile(img.canvas.toDataURL(), img.imageName);
-
-            let formdata = new FormData();// 实例化FormData
-            formdata.append("file", file);
-            axios({
-                method: 'post',
-                url: 'xxxxxxxxxxxxxxxx', //你的请求地址
-                data: formdata,
-                headers: {
-                    'Content-Type': 'multipart/form-data',  //不能少
-                },
-            }).then(res => { console.log(res) })
-        }
-        function dataURLtoFile(dataurl, filename) { //将base64转换为文件
-            var arr = dataurl.split(','),
-                mime = arr[0].match(/:(.*?);/)[1],
-                bstr = atob(arr[1]),
-                n = bstr.length,
-                u8arr = new Uint8Array(n);
-            while (n--) {
-                u8arr[n] = bstr.charCodeAt(n);
-            }
-            return new File([u8arr], filename, {
-                type: mime
-            });
-        }
-        modify.addEventListener('click', function () { //注册事件
-            //拿到你要操作编辑的图片src
-            var src = '../../blog/images/bg.jpg'
-            ImageEditor.open(src)  //关键步，调用open
-        })
-
-    };
-
-</script>
 
 </html>
