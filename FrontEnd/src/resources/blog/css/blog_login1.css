@@ -5,28 +5,33 @@
     justify-content: center;
     align-items: center;
 }
+
 .login-dialog {
     width: 400px;
     height: 400px;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
 }
+
 .login-dialog h3 {
     padding: 50px 0;
     text-align: center;
 }
+
 .login-dialog .row {
-    height: 50px;
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .login-dialog .row span {
     display: block;
     width: 100px;
     font-weight: 700;
     padding-left: 5%;
 }
+
 .username, .password {
     width: 50%;
     height: 40px;
@@ -38,6 +43,7 @@
     text-indent: 10px;
     margin-right: 10%;
 }
+
 .submit {
     margin-top: 5%;
     width: 300px;
@@ -47,11 +53,15 @@
     border: none;
     border-radius: 10px;
 }
+
 .submit:hover {
-    transition: all 0.3s; 
+    transition: all 0.3s;
     background-color: rgb(70, 59, 141);
 }
+
+
 .submit:active {
     background-color: rgb(163, 31, 31);
-    transition: all 0.3s; 
+    transition: all 0.3s;
 }
+
