@@ -20,6 +20,9 @@
             <version>3.1.0</version>
             <scope>provided</scope>
         </dependency>
-
     </dependencies>
+    <packaging>war</packaging>
+    <build>
+        <finalName>class2</finalName>
+    </build>
 </project>
