@@ -22,10 +22,12 @@ import java.io.Writer;
 public class TestHello extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // super.doGet(req, resp);
+
+//        String s = null;
+//        System.out.println(s.length());
         Writer w = resp.getWriter();
-        w.write(123);
+        w.write("frank1");
         w.flush();
-        System.out.println("2333");
-        super.doGet(req, resp);
     }
 }
