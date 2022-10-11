@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Writer;
+import java.util.Enumeration;
 
 /**
  * Created with IntelliJ IDEA.
@@ -21,15 +22,33 @@ import java.io.Writer;
 @WebServlet("/hello")
 public class TestHello extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // super.doGet(req, resp);
-
-//        String s = null;
-//        System.out.println(s.length());
-        Writer w = resp.getWriter();
-        w.write("frank1");
-        w.flush();
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        resp.setContentType("text/html; charset=utf-8");
+        StringBuilder respBody = new StringBuilder();
+        respBody.append(req.getProtocol());
+        respBody.append("<br>");
+        respBody.append(req.getMethod());
+        respBody.append("<br>");
+        respBody.append(req.getRequestURI());
+        respBody.append("<br>");
+        respBody.append("resp ContentType: ").append(resp.getContentType());
+        respBody.append("<br>");
+        respBody.append(req.getContextPath());
+        respBody.append("<br>");
+        respBody.append(req.getQueryString());
+        respBody.append("<br>");
+        respBody.append("<h3>headers:</h3>");
+        Enumeration<String> headerNames = req.getHeaderNames();
+        while (headerNames.hasMoreElements()) {
+            String headerName = headerNames.nextElement();
+            respBody.append(headerName).append(" ");
+            respBody.append(req.getHeader(headerName));
+            respBody.append("<br>");
+        }
+        resp.getWriter().write(respBody.toString());
     }
+
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
