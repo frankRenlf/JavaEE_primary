@@ -30,4 +30,10 @@ public class TestHello extends HttpServlet {
         w.write("frank1");
         w.flush();
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Writer w = resp.getWriter();
+        w.write("frank");
+    }
 }
