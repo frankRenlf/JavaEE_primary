@@ -16,6 +16,7 @@
             $.ajax({
                 type: 'post',
                 url: 'hello',
+                contentType: 'json',
                 success: function (body) {
                     console.log(body + 'pro');
                 }
