@@ -52,7 +52,9 @@ public class TestHello extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html; charset=utf-8");
         Writer w = resp.getWriter();
-        w.write("frank");
+        w.write("你好");
+
     }
 }
