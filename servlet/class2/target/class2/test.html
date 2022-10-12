@@ -35,7 +35,9 @@
             contentType: 'json',
             data: JSON.stringify(user),
             success: function (body) {
+                console.log(body.type);
                 console.log(body);
+                console.log(body.id);
             }
         })
     }

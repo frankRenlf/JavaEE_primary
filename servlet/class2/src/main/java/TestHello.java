@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.Writer;
 import java.util.Enumeration;
 
@@ -76,14 +77,22 @@ public class TestHello extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        resp.setContentType("text/html; charset=utf-8");
+        resp.setContentType("text/html; charset=utf-8");
 //        Writer w = resp.getWriter();
 //        w.write("你好");
 
-        ObjectMapper objectMapper = new ObjectMapper();
-        User user = objectMapper.readValue(req.getInputStream(), User.class);
-        System.out.println(user);
-        resp.setContentType("application/json; charset=utf-8");
-        objectMapper.writeValue(resp.getWriter(), new User(2, "lily", 12));
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        User user = objectMapper.readValue(req.getInputStream(), User.class);
+//        System.out.println(user);
+//        resp.setContentType("application/json; charset=utf-8");
+        resp.getWriter().write("id");
+    }
+
+    private static String readBody(HttpServletRequest req) throws IOException {
+        int contentLength = req.getContentLength();
+        byte[] buffer = new byte[contentLength];
+        InputStream inputStream = req.getInputStream();
+        inputStream.read(buffer);
+        return new String(buffer, "utf-8");
     }
 }
