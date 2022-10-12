@@ -7,33 +7,40 @@
 </head>
 
 <body>
-    <input type="button" value="get" onclick="doget()">
-    <input type="button" value="post" onclick="dopost()">
+<input type="button" value="get" onclick="doget()">
+<input type="button" value="post" onclick="dopost()">
 
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <script>
-        function doget() {
-            $.ajax({
-                type: 'get',
-                url: 'hello',
-                contentType: 'json',
-                success: function (body) {
-                    console.log(body + 'pro');
-                }
-            })
-        }
-        function dopost() {
-            $.ajax({
-                type: 'post',
-                url: 'hello',
-                contentType: 'json',
-                success: function (body) {
-                    console.log(body + 'pro');
-                }
-            })
-        }
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script>
+    function doget() {
+        $.ajax({
+            type: 'get',
+            url: 'hello',
+            contentType: 'json',
+            success: function (body) {
+                console.log(body + 'pro');
+            }
+        })
+    }
 
-    </script>
+    function dopost() {
+        let user = {
+            "id": 1,
+            "name": "frank",
+            "age": 22
+        }
+        $.ajax({
+            type: 'post',
+            url: 'hello',
+            contentType: 'json',
+            data: JSON.stringify(user),
+            success: function (body) {
+                console.log(body);
+            }
+        })
+    }
+
+</script>
 </body>
 
 </html>

@@ -26,15 +26,16 @@
     function dopost() {
         let user = {
             "id": 1,
-            "name": "frank"
+            "name": "frank",
+            "age": 22
         }
         $.ajax({
             type: 'post',
             url: 'hello',
             contentType: 'json',
-            data:JSON.stringify(user),
+            data: JSON.stringify(user),
             success: function (body) {
-                console.log(body + 'pro');
+                console.log(body);
             }
         })
     }

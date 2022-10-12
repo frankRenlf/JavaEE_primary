@@ -25,6 +25,22 @@ import java.util.Enumeration;
 class User {
     public int id;
     public String name;
+    public int age;
+
+    public User(int id, String name, int age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }
 
 @WebServlet("/hello")
@@ -63,8 +79,11 @@ public class TestHello extends HttpServlet {
 //        resp.setContentType("text/html; charset=utf-8");
 //        Writer w = resp.getWriter();
 //        w.write("你好");
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.readValue(req.getInputStream(), User.class);
 
+        ObjectMapper objectMapper = new ObjectMapper();
+        User user = objectMapper.readValue(req.getInputStream(), User.class);
+        System.out.println(user);
+        resp.setContentType("application/json; charset=utf-8");
+        objectMapper.writeValue(resp.getWriter(), new User(2, "lily", 12));
     }
 }
