@@ -1,3 +1,5 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +21,12 @@ import java.util.Enumeration;
  * @github : https://github.com/frankRenlf
  * @Description :
  */
+
+class User {
+    public int id;
+    public String name;
+}
+
 @WebServlet("/hello")
 public class TestHello extends HttpServlet {
     @Override
@@ -52,9 +60,11 @@ public class TestHello extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html; charset=utf-8");
-        Writer w = resp.getWriter();
-        w.write("你好");
+//        resp.setContentType("text/html; charset=utf-8");
+//        Writer w = resp.getWriter();
+//        w.write("你好");
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.readValue(req.getInputStream(), User.class);
 
     }
 }
