@@ -35,9 +35,11 @@
             contentType: 'json',
             data: JSON.stringify(user),
             success: function (body) {
-                console.log(body.type);
                 console.log(body);
-                console.log(body.id);
+                let messages = JSON.parse(body);
+                console.log(messages.type);
+                console.log(messages);
+                console.log(messages.id);
             }
         })
     }

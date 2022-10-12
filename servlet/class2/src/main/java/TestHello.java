@@ -77,7 +77,7 @@ public class TestHello extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html; charset=utf-8");
+//        resp.setContentType("text/html; charset=utf-8");
 //        Writer w = resp.getWriter();
 //        w.write("你好");
 
@@ -85,7 +85,7 @@ public class TestHello extends HttpServlet {
 //        User user = objectMapper.readValue(req.getInputStream(), User.class);
 //        System.out.println(user);
 //        resp.setContentType("application/json; charset=utf-8");
-        resp.getWriter().write("id");
+        resp.getWriter().write(readBody(req));
     }
 
     private static String readBody(HttpServletRequest req) throws IOException {
