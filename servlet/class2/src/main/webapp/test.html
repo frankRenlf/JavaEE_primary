@@ -36,10 +36,8 @@
             data: JSON.stringify(user),
             success: function (body) {
                 console.log(body);
-                let messages = JSON.parse(body);
-                console.log(messages.type);
-                console.log(messages);
-                console.log(messages.id);
+                console.log(typeof(body));
+
             }
         })
     }

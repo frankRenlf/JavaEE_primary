@@ -84,7 +84,7 @@ public class TestHello extends HttpServlet {
 //        ObjectMapper objectMapper = new ObjectMapper();
 //        User user = objectMapper.readValue(req.getInputStream(), User.class);
 //        System.out.println(user);
-//        resp.setContentType("application/json; charset=utf-8");
+        resp.setContentType("application/json; charset=utf-8");
         resp.getWriter().write(readBody(req));
     }
 
