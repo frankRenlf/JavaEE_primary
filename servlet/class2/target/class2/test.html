@@ -42,11 +42,14 @@
             success: function (body) {
                 console.log(body);
                 console.log(body.status);
-                // if(body.status){
-                //     alert("login success")
-                // }else {
-                //     alert("failed login")
-                // }
+                if (body.status) {
+                    alert("login success")
+                    var pathName = window.location.pathname;
+                    var DirName = pathName == '' ? '' : pathName.substring(0, pathName.lastIndexOf('/'));
+                    window.location.href = DirName + "/index";
+                } else {
+                    alert("failed login")
+                }
             }
         })
     }

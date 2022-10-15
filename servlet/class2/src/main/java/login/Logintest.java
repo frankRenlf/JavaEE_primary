@@ -22,27 +22,47 @@ import java.io.IOException;
  * @github : https://github.com/frankRenlf
  * @Description :
  */
+class User {
+    public String username;
+    public String password;
+    public Boolean status;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", status=" + status +
+                '}';
+    }
+}
+
+class Result {
+    String status;
+    Object data;
+}
+
 @WebServlet("/login1")
 public class Logintest extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-//        String body = readBody(req);
-        User user = objectMapper.readValue(req.getInputStream(), User.class);
-        System.out.println(user);
-        resp.setContentType("text/html; charset=utf-8");
-        if (user.username == null || user.password == null) {
-            user.status = false;
-        } else user.status = user.username.equals("123") && user.password.equals("123");
-        System.out.println(user.status);
-        HttpSession session = req.getSession(true);
-        session.setAttribute("username", "frank");
-        if (session.getAttribute("cnt") == null) {
-            session.setAttribute("cnt", 0);
-        } else {
-            session.setAttribute("cnt", (Integer) session.getAttribute("cnt") + 1);
-        }
+//        ObjectMapper objectMapper = new ObjectMapper();
+////        String body = readBody(req);
+//        User user = objectMapper.readValue(req.getInputStream(), User.class);
+//        System.out.println(user);
+//        resp.setContentType("application/json; charset=utf-8");
+//        if (user.username == null || user.password == null) {
+//            user.status = false;
+//        } else user.status = user.username.equals("123") && user.password.equals("123");
+//        System.out.println(user.status);
+//        HttpSession session = req.getSession(true);
+//        session.setAttribute("username", "frank");
+//        if (session.getAttribute("cnt") == null) {
+//            session.setAttribute("cnt", 0);
+//        } else {
+//            session.setAttribute("cnt", (Integer) session.getAttribute("cnt") + 1);
+//        }
 
         resp.sendRedirect("index");
 //        objectMapper.writeValue(resp.getWriter(),user);

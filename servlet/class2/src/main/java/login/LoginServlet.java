@@ -25,24 +25,6 @@ import java.io.IOException;
  * @Description :
  */
 
-class User {
-    public String username;
-    public String password;
-    public Boolean status;
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
-}
-
-class Result {
-    String status;
-    Object data;
-}
 
 
 
