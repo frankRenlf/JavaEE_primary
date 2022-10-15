@@ -51,6 +51,7 @@ public class Logintest extends HttpServlet {
 ////        String body = readBody(req);
 //        User user = objectMapper.readValue(req.getInputStream(), User.class);
 //        System.out.println(user);
+        resp.setContentType("text/html; charset=utf-8");
 //        resp.setContentType("application/json; charset=utf-8");
 //        if (user.username == null || user.password == null) {
 //            user.status = false;
