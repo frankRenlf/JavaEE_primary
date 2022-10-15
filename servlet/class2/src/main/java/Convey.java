@@ -50,7 +50,10 @@ public class Convey extends HttpServlet {
         Msg couple = objectMapper.readValue(req.getInputStream(), Msg.class);
         System.out.println(couple);
         resp.setContentType("application/json; charset=utf-8");
-        resp.getWriter().write(couple.one + " say hello to " + couple.two);
+//        resp.getWriter().write(couple.one + " say hello to " + couple.two);
+        couple.one = "frank";
+        couple.two = "lily";
+        objectMapper.writeValue(resp.getWriter(), couple);
     }
 
 

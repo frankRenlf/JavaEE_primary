@@ -37,13 +37,13 @@
         $.ajax({
             type: 'post',
             url: 'msg',
-            contentType: 'json',
+            contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(couple),
             success: function (body) {
                 console.log(body);
                 // console.log(body.id);
                 console.log(typeof (body));
-                con3.value = body;
+                con3.value = body.one + " say hello to " + body.two;
             }
         })
     }
