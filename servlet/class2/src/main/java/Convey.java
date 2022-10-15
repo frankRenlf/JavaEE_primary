@@ -1,3 +1,5 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -5,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,9 +21,23 @@ import java.io.InputStream;
  * @github : https://github.com/frankRenlf
  * @Description :
  */
-class Couple {
-    String s1;
-    String s2;
+class Couples {
+    public String one;
+    public String two;
+
+
+    @Override
+    public String toString() {
+        return "Couple{" +
+                "one='" + one + '\'' +
+                ", two='" + two + '\'' +
+                '}';
+    }
+
+    public Couples(String one, String two) {
+        this.one = one;
+        this.two = two;
+    }
 }
 
 @WebServlet("/msg")
@@ -28,10 +45,13 @@ public class Convey extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String s1 = req.getParameter("s1");
-        String s2 = req.getParameter("s2");
-        resp.setContentType("text/html; charset=utf-8");
-        resp.getWriter().write(s1 + "say hello to" + s2);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+//        String body = readBody(req);
+        Couples couple = objectMapper.readValue(req.getInputStream(), Couples.class);
+        System.out.println(couple);
+        resp.setContentType("application/json; charset=utf-8");
+        resp.getWriter().write(couple.one + " say hello to " + couple.two);
     }
 
 
@@ -40,6 +60,6 @@ public class Convey extends HttpServlet {
         byte[] buffer = new byte[contentLength];
         InputStream inputStream = req.getInputStream();
         inputStream.read(buffer);
-        return new String(buffer, "utf-8");
+        return new String(buffer, StandardCharsets.UTF_8);
     }
 }

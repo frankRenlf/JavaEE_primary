@@ -31,14 +31,14 @@
 
     function dopost() {
         let couple = {
-            "s1": con1.value,
-            "s2": con2.value
+            "one": con1.value,
+            "two": con2.value
         }
         $.ajax({
             type: 'post',
             url: 'msg',
-            // contentType: 'json',
-            data: couple,
+            contentType: 'json',
+            data: JSON.stringify(couple),
             success: function (body) {
                 console.log(body);
                 // console.log(body.id);
