@@ -31,19 +31,22 @@
 
     function dopost() {
         let couple = {
-            "one": con1.value,
-            "two": con2.value
+            "username": con1.value,
+            "password": con2.value
         }
         $.ajax({
             type: 'post',
-            url: 'msg',
+            url: 'login',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(couple),
             success: function (body) {
                 console.log(body);
-                // console.log(body.id);
-                console.log(typeof (body));
-                con3.value = body.one + " say hello to " + body.two;
+                console.log(body.status);
+                // if(body.status){
+                //     alert("login success")
+                // }else {
+                //     alert("failed login")
+                // }
             }
         })
     }
