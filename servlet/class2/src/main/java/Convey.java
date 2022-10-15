@@ -21,7 +21,7 @@ import java.nio.charset.StandardCharsets;
  * @github : https://github.com/frankRenlf
  * @Description :
  */
-class Couples {
+class Msg {
     public String one;
     public String two;
 
@@ -34,10 +34,10 @@ class Couples {
                 '}';
     }
 
-    public Couples(String one, String two) {
-        this.one = one;
-        this.two = two;
-    }
+//    public Msg(String one, String two) {
+//        this.one = one;
+//        this.two = two;
+//    }
 }
 
 @WebServlet("/msg")
@@ -45,10 +45,9 @@ public class Convey extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         ObjectMapper objectMapper = new ObjectMapper();
 //        String body = readBody(req);
-        Couples couple = objectMapper.readValue(req.getInputStream(), Couples.class);
+        Msg couple = objectMapper.readValue(req.getInputStream(), Msg.class);
         System.out.println(couple);
         resp.setContentType("application/json; charset=utf-8");
         resp.getWriter().write(couple.one + " say hello to " + couple.two);
