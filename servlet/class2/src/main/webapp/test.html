@@ -7,9 +7,11 @@
 </head>
 
 <body>
+<input type="text" class="s1">
+<input type="text" class="s2">
 <input type="button" value="get" onclick="doget()">
 <input type="button" value="post" onclick="dopost()">
-
+<input type="text" class="s3">
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script>
     function doget() {
@@ -23,21 +25,25 @@
         })
     }
 
+    let con1 = document.querySelector(".s1");
+    let con2 = document.querySelector(".s2");
+    let con3 = document.querySelector(".s3");
+
     function dopost() {
-        let user = {
-            "id": 1,
-            "name": "frank",
-            "age": 22
+        let couple = {
+            "s1": con1.value,
+            "s2": con2.value
         }
         $.ajax({
             type: 'post',
-            url: 'hello',
+            url: 'msg',
             contentType: 'json',
-            data: JSON.stringify(user),
+            data: JSON.stringify(couple),
             success: function (body) {
                 console.log(body);
-                console.log(typeof(body));
-
+                // console.log(body.id);
+                console.log(typeof (body));
+                con3.value = body;
             }
         })
     }
