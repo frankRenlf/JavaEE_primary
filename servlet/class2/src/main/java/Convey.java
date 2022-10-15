@@ -30,7 +30,7 @@ public class Convey extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String s1 = req.getParameter("s1");
         String s2 = req.getParameter("s2");
-        resp.setContentType("application/json; charset=utf-8");
+        resp.setContentType("text/html; charset=utf-8");
         resp.getWriter().write(s1 + "say hello to" + s2);
     }
 

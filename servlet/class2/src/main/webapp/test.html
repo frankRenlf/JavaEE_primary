@@ -37,8 +37,8 @@
         $.ajax({
             type: 'post',
             url: 'msg',
-            contentType: 'json',
-            data: JSON.stringify(couple),
+            // contentType: 'json',
+            data: couple,
             success: function (body) {
                 console.log(body);
                 // console.log(body.id);
