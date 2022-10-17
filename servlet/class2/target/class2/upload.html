@@ -6,27 +6,30 @@
 
 </head>
 <body>
-    <form action="upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="file1">
-        <input type="submit" value="submit">
-    </form>
+<form action="upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file1">
+    <input type="submit" value="submit">
+</form>
 
-    <input type="file" name="file1" class="file2">
-    <input type="button" class="btn2">
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<input type="file" name="file1" class="file2">
+<input type="button" class="btn2" value="submit">
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
-    <script>
+<script>
     let file = document.querySelector(".file2");
     let btn2 = document.querySelector(".btn2");
-    btn2.onclick = $.ajax({
-        type: 'post',
-        url: 'upload',
-        contentType: 'multipart/form-data',
-        data: file.value,
-        success: function (body) {
-            console.log("test")
-        }
-    })
+    console.log(file);
+    btn2.onclick = function () {
+        $.ajax({
+            type: 'post',
+            url: 'upload',
+            contentType: 'multipart/form-data',
+            data: file.files[0],
+            success: function (body) {
+                console.log("test")
+            }
+        })
+    }
 </script>
 </body>
 </html>
