@@ -18,6 +18,7 @@ import java.util.List;
  */
 public class BlogDao {
 
+    
     public void insert(Blog blog){
 
     }
