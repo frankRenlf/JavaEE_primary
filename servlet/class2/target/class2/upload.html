@@ -20,15 +20,20 @@
     let btn2 = document.querySelector(".btn2");
     console.log(file);
     btn2.onclick = function () {
+        var files = $('#avatar').prop('files');
+        var data = new FormData();
+        data.append('file1', files[0]);
         $.ajax({
-            type: 'post',
             url: 'upload',
-            contentType: 'multipart/form-data',
-            data: file.files[0],
+            type: 'POST',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
             success: function (body) {
-                console.log("test")
+                console.log(body)
             }
-        })
+        });
     }
 </script>
 </body>

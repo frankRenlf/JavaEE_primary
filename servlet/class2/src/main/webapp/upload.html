@@ -22,14 +22,17 @@
     btn2.onclick = function () {
         var files = $('#avatar').prop('files');
         var data = new FormData();
-        data.append('avatar', files[0]);
+        data.append('file1', files[0]);
         $.ajax({
-            url: '/api/upload',
+            url: 'upload',
             type: 'POST',
             data: data,
             cache: false,
             processData: false,
-            contentType: false
+            contentType: false,
+            success: function (body) {
+                console.log(body)
+            }
         });
     }
 </script>

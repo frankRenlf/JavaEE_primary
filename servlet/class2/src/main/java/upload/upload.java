@@ -33,5 +33,7 @@ public class upload extends HttpServlet {
         System.out.println(part.getSize());
         System.out.println(part.getContentType());
         part.write("C:\\Users\\11195\\IdeaProjects\\JavaEE_primary\\servlet\\class2\\src\\main\\webapp\\images\\res.jpg");
+        resp.setContentType("text/html");
+        resp.getWriter().write("success");
     }
 }
