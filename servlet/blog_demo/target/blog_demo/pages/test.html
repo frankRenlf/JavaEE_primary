@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="file" value="select img">
+    <script src="https://www.butterpig.top/photochangebackground"></script>
+    <script>
+        let preCanvas = document.getElementsByClassName('.canvas')
+
+        let ctx = preCanvas.getContext('2d')
+
+        preCanvas.width = this.img.width
+
+        preCanvas.height = this.img.height
+
+        ctx.drawImage(this.img, 0, 0, this.img.width, this.img.height)
+
+        let imgData = ctx.getImageData(0, 0, this.img.width, this.img.height);
+
+        this.dots = [];
+
+        let r = imgData.data[(4 * imgData.width + 4) * 4];
+
+        let g = imgData.data[(4 * imgData.width + 4) * 4 + 1];
+
+        let b = imgData.data[(4 * imgData.width + 4) * 4 + 2];
+
+        let a = imgData.data[(4 * imgData.width + 4) * 4 + 3]
+    </script>
+</body>
+
+</html>
