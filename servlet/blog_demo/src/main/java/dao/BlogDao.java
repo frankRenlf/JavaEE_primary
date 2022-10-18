@@ -85,6 +85,7 @@ public class BlogDao {
             connection = DBUtil.getConnection();
             String sql = "select * from blog where blogId = ?";
             statement = connection.prepareStatement(sql);
+            statement.setString(1, String.valueOf(id));
             resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 blog = new Blog(resultSet.getInt("blogId"),
