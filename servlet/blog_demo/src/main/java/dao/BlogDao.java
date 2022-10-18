@@ -115,7 +115,6 @@ public class BlogDao {
             } else {
                 System.out.println("delete failed");
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
