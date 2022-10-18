@@ -28,7 +28,7 @@ public class DBUtil {
         if (dataSource == null) {
             synchronized (DBUtil.class) {
                 dataSource = new MysqlDataSource();
-                ((MysqlDataSource) dataSource).setURL("jdbc:mysql//127.0.0.1/blog_system?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8");
+                ((MysqlDataSource) dataSource).setURL("jdbc:mysql://localhost:3306/blog_system?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8");
                 ((MysqlDataSource) dataSource).setUser("root");
                 ((MysqlDataSource) dataSource).setPassword("RLFrlf930Frank_wjq");
             }
