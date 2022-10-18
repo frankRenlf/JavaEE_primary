@@ -20,7 +20,7 @@ public class BlogDao {
 
 
     public void insert(Blog blog){
-
+        
     }
 
     public List<Blog> selectAll(){
