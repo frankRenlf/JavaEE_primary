@@ -21,6 +21,17 @@ public class Blog {
     private Integer userId;
     private Timestamp postTime;
 
+    public Blog() {
+    }
+
+    public Blog(Integer blogId, String title, String content, Integer userId, Timestamp postTime) {
+        this.blogId = blogId;
+        this.title = title;
+        this.content = content;
+        this.userId = userId;
+        this.postTime = postTime;
+    }
+
     public Integer getBlogId() {
         return blogId;
     }
