@@ -76,11 +76,9 @@
             url: 'login',
             success: function (body) {
                 let con = document.querySelector('.text1');
-                console.log(typeof (body));
-                console.log(body);
                 let s = JSON.parse(body);
                 console.log(typeof (s));
-                if (body.userId > 0) {
+                if (s.userId > 0) {
                     alert("login success")
                     window.location.href = './blog_list.html';
                 } else {
