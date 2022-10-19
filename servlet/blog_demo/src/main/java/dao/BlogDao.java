@@ -63,7 +63,9 @@ public class BlogDao {
             while (resultSet.next()) {
                 Blog blog = new Blog(resultSet.getInt("blogId"),
                         resultSet.getString("title"),
-                        resultSet.getString("content"),
+                        resultSet.getString("content").length() > 100 ?
+                                resultSet.getString("content").substring(0, 100) :
+                                resultSet.getString("content"),
                         resultSet.getInt("userId"),
                         resultSet.getTimestamp("postTime"));
                 blogList.add(blog);
