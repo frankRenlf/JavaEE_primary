@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,7 +20,7 @@ public class Blog {
     private String title;
     private String content;
     private Integer userId;
-    private Timestamp postTime;
+    private String postTime;
 
     public Blog() {
     }
@@ -29,7 +30,8 @@ public class Blog {
         this.title = title;
         this.content = content;
         this.userId = userId;
-        this.postTime = postTime;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        this.postTime = simpleDateFormat.format(postTime);
     }
 
     public Integer getBlogId() {
@@ -64,11 +66,12 @@ public class Blog {
         this.userId = userId;
     }
 
-    public Timestamp getPostTime() {
+    public String getPostTime() {
         return postTime;
     }
 
     public void setPostTime(Timestamp postTime) {
-        this.postTime = postTime;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        this.postTime = simpleDateFormat.format(postTime);
     }
 }
