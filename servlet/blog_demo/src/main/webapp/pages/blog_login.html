@@ -45,7 +45,7 @@
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script>
-    let id = document.querySelector('.userid');
+    // let id = document.querySelector('.userid');
     let un = document.querySelector('.username');
     let pw = document.querySelector('.password');
     let btn = document.querySelector('.submit');
@@ -62,11 +62,10 @@
     // };
 
     $('.submit').on('click', function () {
-        let uid = id.value;
         let uname = un.value;
         let upassword = pw.value;
         let user = {
-            "id": uid,
+            "userId": 0,
             "username": uname,
             "password": upassword
         }
@@ -77,9 +76,12 @@
             url: 'login',
             success: function (body) {
                 let con = document.querySelector('.text1');
-                console.log(typeof (body.data));
+                console.log(typeof (body));
                 console.log(body);
-                if (body.data) {
+                let s = JSON.parse(body);
+                console.log(typeof (s));
+                if (body.userId > 0) {
+                    alert("login success")
                     window.location.href = './blog_list.html';
                 } else {
                     alert('invalid input');
