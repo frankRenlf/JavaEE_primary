@@ -32,9 +32,17 @@ public class BlogServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json; charset=utf8");
+        String blogId = req.getParameter("blogId");
         BlogDao blogDao = new BlogDao();
-        List<Blog> blogList = blogDao.selectAll();
-        String json = objectMapper.writeValueAsString(blogList);
-        resp.getWriter().write(json);
+        if (blogId == null) {
+            List<Blog> blogList = blogDao.selectAll();
+            String json = objectMapper.writeValueAsString(blogList);
+            resp.getWriter().write(json);
+        } else {
+            Blog blog = blogDao.getById(Integer.parseInt(blogId));
+            String json = objectMapper.writeValueAsString(blog);
+            resp.getWriter().write(json);
+        }
+
     }
 }

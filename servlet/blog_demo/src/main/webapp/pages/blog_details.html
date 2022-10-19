@@ -45,83 +45,33 @@
         <div class="container-right">
             <!-- 每一篇博客包含标题, 摘要, 时间 -->
             <div class="blog-content">
-                <h3>我的第一篇博客</h3>
-                <div class="date">2021-06-02</div>
+                <h3></h3>
+                <div class="date"></div>
                 <div class="text">
-                    从今天起, 我要认真敲代码. Lorem ipsum, dolor sit amet consectetur
-                    adipisicing elit. Cum distinctio ullam eum ut
-                    veroab laborum numquam tenetur est in dolorum a sint, assumenda
-                    adipisci similique quaerat vel.
-                    Facere,
-                    et.
+
                 </div>
-                <div class="text">
-                    从今天起, 我要认真敲代码. Lorem ipsum, dolor sit amet consectetur
-                    adipisicing elit. Cum distinctio ullam eum ut
-                    veroab laborum numquam tenetur est in dolorum a sint, assumenda
-                    adipisci similique quaerat vel.
-                    Facere,
-                    et.
-                </div>
-                <div class="text">
-                    从今天起, 我要认真敲代码. Lorem ipsum, dolor sit amet consectetur
-                    adipisicing elit. Cum distinctio ullam eum ut
-                    veroab laborum numquam tenetur est in dolorum a sint, assumenda
-                    adipisci similique quaerat vel.
-                    Facere,
-                    et.
-                </div>
-                <div class="text">
-                    从今天起, 我要认真敲代码. Lorem ipsum, dolor sit amet consectetur
-                    adipisicing elit. Cum distinctio ullam eum ut
-                    veroab laborum numquam tenetur est in dolorum a sint, assumenda
-                    adipisci similique quaerat vel.
-                    Facere,
-                    et.
-                </div>
-                <div class="text">
-                    从今天起, 我要认真敲代码. Lorem ipsum, dolor sit amet consectetur
-                    adipisicing elit. Cum distinctio ullam eum ut
-                    veroab laborum numquam tenetur est in dolorum a sint, assumenda
-                    adipisci similique quaerat vel.
-                    Facere,
-                    et.
-                </div>
-                <div class="text">
-                    从今天起, 我要认真敲代码. Lorem ipsum, dolor sit amet consectetur
-                    adipisicing elit. Cum distinctio ullam eum ut
-                    veroab laborum numquam tenetur est in dolorum a sint, assumenda
-                    adipisci similique quaerat vel.
-                    Facere,
-                    et.
-                </div>
-                <div class="text">
-                    从今天起, 我要认真敲代码. Lorem ipsum, dolor sit amet consectetur
-                    adipisicing elit. Cum distinctio ullam eum ut
-                    veroab laborum numquam tenetur est in dolorum a sint, assumenda
-                    adipisci similique quaerat vel.
-                    Facere,
-                    et.
-                </div>
-                <div class="text">
-                    从今天起, 我要认真敲代码. Lorem ipsum, dolor sit amet consectetur
-                    adipisicing elit. Cum distinctio ullam eum ut
-                    veroab laborum numquam tenetur est in dolorum a sint, assumenda
-                    adipisci similique quaerat vel.
-                    Facere,
-                    et.
-                </div>
-                <div class="text">
-                    从今天起, 我要认真敲代码. Lorem ipsum, dolor sit amet consectetur
-                    adipisicing elit. Cum distinctio ullam eum ut
-                    veroab laborum numquam tenetur est in dolorum a sint, assumenda
-                    adipisci similique quaerat vel.
-                    Facere,
-                    et.
-                </div>
+
             </div>
         </div>
     </div>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        function getBlog() {
+            $.ajax({
+                type: 'get',
+                url: 'blog' + location.search,
+                success: function (body) {
+                    let h3 = document.querySelector('.blog-content h3');
+                    h3.innerHTML = body.title;
+                    let divDate = document.querySelector('.blog-content .date')
+                    divDate.innerHTML = body.postTime;
+                    let divContent = document.querySelector('.blog-content .text');
+                    divContent.innerHTML = body.content;
+                }
+            });
+        }
+        getBlog();
+    </script>
 </body>
 
 </html>

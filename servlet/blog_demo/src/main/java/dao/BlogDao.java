@@ -61,11 +61,10 @@ public class BlogDao {
             statement = connection.prepareStatement(sql);
             resultSet = statement.executeQuery();
             while (resultSet.next()) {
+                String content = resultSet.getString("content");
                 Blog blog = new Blog(resultSet.getInt("blogId"),
                         resultSet.getString("title"),
-                        resultSet.getString("content").length() > 100 ?
-                                resultSet.getString("content").substring(0, 100) :
-                                resultSet.getString("content"),
+                        content.length() > 100 ? content.substring(0, 100) : content,
                         resultSet.getInt("userId"),
                         resultSet.getTimestamp("postTime"));
                 blogList.add(blog);
