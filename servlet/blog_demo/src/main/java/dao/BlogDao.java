@@ -114,11 +114,11 @@ public class BlogDao {
             statement = connection.prepareStatement(sql);
             statement.setString(1, String.valueOf(userId));
             resultSet = statement.executeQuery();
-            System.out.println(resultSet.getInt("n"));
-
-            System.out.println(resultSet.getString("n"));
-
-            ret = resultSet.getInt(1);
+            while (resultSet.next()) {
+//                System.out.println(resultSet.getInt("n"));
+//                System.out.println(resultSet.getString("n"));
+                ret = resultSet.getInt("n");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

@@ -52,7 +52,7 @@ public class UserInfo extends HttpServlet {
             }
             resp.setContentType("application/json; charset=utf8");
             User user = userDao.selectById(userId);
-            String jsonString = objectMapper.writeValueAsString(new User(userId, user.getUsername(), blogDao.getNums(userId).toString()));
+            String jsonString = objectMapper.writeValueAsString(new User(userId, user.getUsername(), (blogDao.getNums(userId)).toString()));
             resp.getWriter().write(jsonString);
         } else {
             // 请求来自博客详情页, 返回文章作者信息.

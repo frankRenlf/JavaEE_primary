@@ -63,21 +63,6 @@
     <script src="../js/jquery.min.js"></script>
     <script src="../js/app.js"></script>
     <script>
-
-        function getUserInfo() {
-            $.ajax({
-                type: 'get',
-                url: 'userinfo',
-                success: function (body) {
-                    console.log(typeof (body));
-                    console.log(body);
-                    let username = document.querySelector('.card h3');
-                    let number = document.querySelector('.number');
-                    username.innerHTML = body.username;
-                    number.innerHTML = body.password;
-                }
-            })
-        }
         getUserInfo();
         checkLogin();
         function getBlogList() {
