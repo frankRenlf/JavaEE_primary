@@ -103,6 +103,31 @@ public class BlogDao {
         return blog;
     }
 
+    public Integer getNums(Integer userId){
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        int ret = 0;
+        try {
+            connection = DBUtil.getConnection();
+            String sql = "select count(blogId) n from blog where userId = ?";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, String.valueOf(userId));
+            resultSet = statement.executeQuery();
+            System.out.println(resultSet.getInt(1));
+
+            System.out.println(resultSet.getString(1));
+
+            ret = resultSet.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(connection, statement, resultSet);
+        }
+        return ret;
+    }
+
+
     public void deleteById(Integer id) {
         Connection connection = null;
         PreparedStatement statement = null;
