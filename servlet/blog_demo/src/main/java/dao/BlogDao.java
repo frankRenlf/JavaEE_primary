@@ -114,9 +114,9 @@ public class BlogDao {
             statement = connection.prepareStatement(sql);
             statement.setString(1, String.valueOf(userId));
             resultSet = statement.executeQuery();
-            System.out.println(resultSet.getInt(1));
+            System.out.println(resultSet.getInt("n"));
 
-            System.out.println(resultSet.getString(1));
+            System.out.println(resultSet.getString("n"));
 
             ret = resultSet.getInt(1);
         } catch (SQLException e) {

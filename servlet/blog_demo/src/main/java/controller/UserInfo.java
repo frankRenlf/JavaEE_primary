@@ -44,6 +44,7 @@ public class UserInfo extends HttpServlet {
                 return;
             }
             Integer userId = (Integer) session.getAttribute("userId");
+            System.out.println(userId);
             if (userId == null) {
                 resp.setContentType("text/html;charset=utf8");
                 resp.getWriter().write("当前未登录!");
