@@ -32,7 +32,7 @@ public class UserInfo extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String blogId = req.getParameter("blogId");
+        String blogId = req.getParameter("userinfo");
         UserDao userDao = new UserDao();
         BlogDao blogDao = new BlogDao();
         if (blogId == null) {
@@ -57,12 +57,14 @@ public class UserInfo extends HttpServlet {
         } else {
             // 请求来自博客详情页, 返回文章作者信息.
             Blog blog = blogDao.getById(Integer.parseInt(blogId));
+            System.out.println("blogId:"+blogId);
             if (blog == null) {
                 resp.setContentType("text/html;charset=utf8");
                 resp.getWriter().write("当前 blogId 有误!");
                 return;
             }
             User user = userDao.selectById(blog.getUserId());
+            System.out.println(user);
             if (user == null) {
                 resp.setContentType("text/html;charset=utf8");
                 resp.getWriter().write("当前博客对应的作者没有找到!");
