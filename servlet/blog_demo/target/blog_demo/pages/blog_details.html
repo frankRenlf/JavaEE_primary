@@ -52,7 +52,7 @@
             <div class="blog-content">
                 <h3></h3>
                 <div class="date"></div>
-                <div id="content" style="opacity: 80%;">
+                <div id="content1" style="opacity: 80%;">
 
                 </div>
 
@@ -72,8 +72,10 @@
                     // 
                     // let divContent = document.querySelector('.blog-content .text');
                     // divContent.innerHTML = body.content;
-                    editormd.markdownToHTML('content',
-                        { markdown: body.content });
+                    editormd.markdownToHTML('content1', {
+                        markdown: body.content,
+                        opacity: "80 %",
+                    });
                 }
             });
         }

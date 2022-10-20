@@ -17,3 +17,11 @@
     text-indent: 2em;
     padding: 10px 0;
 }
+
+#content1 { 
+    border-radius: 10px; 
+    /* 针对 #editor 用 bgc 属性无法设置半透明了. 里面包含的内容带了背景色 */ 
+    /* background-color:rgba(255, 255, 255, 0.8); */ 
+    /* 可以使用 opacity 属性实现 */ 
+    opacity: 80%; 
+ }
