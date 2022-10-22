@@ -24,7 +24,7 @@
 
         <a href="./blog_list.html">Home page</a>
         <a href="./blog_edit.html">edit blog</a>
-        <a href="./blog_login.html">Log out</a>
+        <a href="./blog_login.html" onclick="logout()">Log out</a>
     </div>
     <!-- 编辑框容器 -->
     <div class="blog-edit-container">
@@ -37,8 +37,20 @@
         <div id="editor"></div>
     </div>
 </body>
+<script src="../js/app.js"></script>
 <script>
-
+    function logout() {
+        $.ajax({
+            type: 'get',
+            url: 'logout',
+            success: function (body){
+                location.assign("blog_login.html");
+            },
+            error: function (body){
+                location.assign("blog_login.html");
+            }
+        })
+    }
     var editor = editormd('editor', {
         // 这里的尺寸必须在这里设置. 设置样式会被 editormd 自动覆盖掉.
         width: "100%",

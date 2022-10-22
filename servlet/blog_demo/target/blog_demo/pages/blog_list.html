@@ -20,7 +20,7 @@
 
         <a href="./blog_list.html">Home page</a>
         <a href="./blog_edit.html">edit blog</a>
-        <a href="./blog_login.html">Log out</a>
+        <a href="./blog_login.html" onclick="logout()">Log out</a>
     </div>
 
     <div class="container">
@@ -63,6 +63,18 @@
     <script src="../js/jquery.min.js"></script>
     <script src="../js/app.js"></script>
     <script>
+        function logout() {
+            $.ajax({
+                type: 'get',
+                url: 'logout',
+                success: function (body){
+                    location.assign("blog_login.html");
+                },
+                error: function (body){
+                    location.assign("blog_login.html");
+                }
+            })
+        }
         checkLogin();
         function getUserInfo() {
             $.ajax({

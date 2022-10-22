@@ -25,7 +25,7 @@
 
         <a href="./blog_list.html">Home page</a>
         <a href="./blog_edit.html">edit blog</a>
-        <a href="./blog_login.html">Log out</a>
+        <a href="./blog_login.html" onclick="logout()">Log out</a>
     </div>
     <div class="container">
         <!-- 左侧个人信息 -->
@@ -61,6 +61,18 @@
     </div>
     <script src="../js/app.js"></script>
     <script>
+        function logout() {
+            $.ajax({
+                type: 'get',
+                url: 'logout',
+                success: function (body){
+                    location.assign("blog_login.html");
+                },
+                error: function (body){
+                    location.assign("blog_login.html");
+                }
+            })
+        }
         checkLogin();
         function getUserInfo() {
             $.ajax({
@@ -87,7 +99,7 @@
                     h3.innerHTML = body.title;
                     let divDate = document.querySelector('.blog-content .date')
                     divDate.innerHTML = body.postTime;
-                    // 
+                    //
                     // let divContent = document.querySelector('.blog-content .text');
                     // divContent.innerHTML = body.content;
                     editormd.markdownToHTML('content1', {
