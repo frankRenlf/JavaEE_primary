@@ -70,6 +70,7 @@ public class UserInfo extends HttpServlet {
                 resp.getWriter().write("当前博客对应的作者没有找到!");
                 return;
             }
+            if(user.getUserId()==)
             resp.setContentType("application/json; charset=utf8");
             String jsonString = objectMapper.writeValueAsString(new User(user.getUserId(), user.getUsername(), blogDao.getNums(user.getUserId()).toString()));
             resp.getWriter().write(jsonString);
