@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -47,8 +48,18 @@ public class BlogServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("application/json; charset=utf8");
-          
+        req.setCharacterEncoding("utf8");
+        resp.setContentType("text/html; charset=utf8");
+        Blog blog = (Blog) objectMapper.readValue(req.getInputStream(), Blog.class);
+        if(blog.getContent()==null||blog.getTitle()==null){
+            resp.setStatus(403);
+            return;
+        }
+        HttpSession session = req.getSession(true);
+        Integer userid = (Integer) session.getAttribute("userId");
+        blog.setUserId(userid);
+        BlogDao blogDao = new BlogDao();
+        blogDao.insert(blog);
 
     }
 }

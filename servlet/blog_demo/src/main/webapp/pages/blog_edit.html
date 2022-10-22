@@ -31,7 +31,7 @@
         <!-- 标题编辑区 -->
         <div class="title">
             <input type="text" placeholder="在这里写下文章标题" class="text-title">
-            <button class="submit">发布文章</button>
+            <button class="submit" onclick="submit()">发布文章</button>
         </div>
         <!-- 创建编辑器标签 -->
         <div id="editor"></div>
@@ -61,6 +61,31 @@
         // 指定 editor.md 依赖的插件路径
         path: "../editor.md-master/lib/"
     });
+    function submit() {
+        let title1 = document.querySelector('.text-title');
+        let content1 = editor.getMarkdown();
+        let article = {
+            'blogId': null,
+            'title': title1.value,
+            'content': content1,
+            'postTime': null,
+            'userId': null
+        }
+        $.ajax({
+            type: 'post',
+            url: '/blog',
+            contentType: 'application/json',
+            dataType: 'JSON',
+            data: JSON.stringify(article),
+            success: function (body) {
+                alert("submit success");
+                editor.markdown = "# 在这里写下一篇博客";
+            },
+            error: function (body) {
+                alert("submit failed");
+            }
+        })
+    }
 </script>
 
 </html>
