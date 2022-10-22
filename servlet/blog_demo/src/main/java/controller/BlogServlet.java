@@ -43,6 +43,12 @@ public class BlogServlet extends HttpServlet {
             String json = objectMapper.writeValueAsString(blog);
             resp.getWriter().write(json);
         }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("application/json; charset=utf8");
+          
 
     }
 }
