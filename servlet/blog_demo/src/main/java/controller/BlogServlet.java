@@ -50,14 +50,15 @@ public class BlogServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf8");
         resp.setContentType("text/html; charset=utf8");
-        Blog blog = (Blog) objectMapper.readValue(req.getInputStream(), Blog.class);
-        if(blog.getContent()==null||blog.getTitle()==null){
+        String content = req.getParameter("content");
+        String title = req.getParameter("title");
+        if (content == null || title == null || content.length() == 0 || title.length() == 0) {
             resp.setStatus(403);
             return;
         }
         HttpSession session = req.getSession(true);
         Integer userid = (Integer) session.getAttribute("userId");
-        blog.setUserId(userid);
+        Blog blog = new Blog(null, title, content, userid, null);
         BlogDao blogDao = new BlogDao();
         blogDao.insert(blog);
 

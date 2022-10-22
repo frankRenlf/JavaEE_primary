@@ -30,8 +30,11 @@ public class Blog {
         this.title = title;
         this.content = content;
         this.userId = userId;
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        this.postTime = simpleDateFormat.format(postTime);
+        if (postTime != null) {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            this.postTime = simpleDateFormat.format(postTime);
+        }
+
     }
 
     public Integer getBlogId() {

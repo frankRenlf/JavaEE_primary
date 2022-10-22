@@ -57,7 +57,7 @@ public class BlogDao {
         List<Blog> blogList = new ArrayList<>();
         try {
             connection = DBUtil.getConnection();
-            String sql = "select * from blog";
+            String sql = "select * from blog order by postTime desc";
             statement = connection.prepareStatement(sql);
             resultSet = statement.executeQuery();
             while (resultSet.next()) {

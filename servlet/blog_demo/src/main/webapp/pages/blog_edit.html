@@ -8,7 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/blog_edit.css">
-    <link rel="stylesheet" href="../editor.md-master/css/editormd.min.css" />
+    <link rel="stylesheet" href="../editor.md-master/css/editormd.min.css"/>
     <script src="../js/jquery.min.js"></script>
     <script src="../editor.md-master/lib/marked.min.js"></script>
     <script src="../editor.md-master/lib/prettify.min.js"></script>
@@ -16,26 +16,30 @@
 </head>
 
 <body>
-    <div class="nav">
+<div class="nav">
 
-        <img src="../images/male.png" alt="male">
-        <span class="title">My blog</span>
-        <span class="spacer"></span>
+    <img src="../images/male.png" alt="male">
+    <span class="title">My blog</span>
+    <span class="spacer"></span>
 
-        <a href="./blog_list.html">Home page</a>
-        <a href="./blog_edit.html">edit blog</a>
-        <a href="./blog_login.html" onclick="logout()">Log out</a>
-    </div>
-    <!-- 编辑框容器 -->
-    <div class="blog-edit-container">
-        <!-- 标题编辑区 -->
+    <a href="./blog_list.html">Home page</a>
+    <a href="./blog_edit.html">edit blog</a>
+    <a href="./blog_login.html" onclick="logout()">Log out</a>
+</div>
+<!-- 编辑框容器 -->
+<div class="blog-edit-container">
+    <!-- 标题编辑区 -->
+    <form action="blog" method="post" class="form1" style="height: 100%">
         <div class="title">
-            <input type="text" placeholder="在这里写下文章标题" class="text-title">
-            <button class="submit" onclick="submit()">发布文章</button>
+            <input type="text" placeholder="在这里写下文章标题" class="text-title" name="title">
+            <input type="submit" class="submit" value="发布文章"></input>
         </div>
         <!-- 创建编辑器标签 -->
-        <div id="editor"></div>
-    </div>
+        <div id="editor">
+            <textarea name="content" style="display: none"></textarea>
+        </div>
+    </form>
+</div>
 </body>
 <script src="../js/app.js"></script>
 <script>
@@ -43,14 +47,15 @@
         $.ajax({
             type: 'get',
             url: 'logout',
-            success: function (body){
+            success: function (body) {
                 location.assign("blog_login.html");
             },
-            error: function (body){
+            error: function (body) {
                 location.assign("blog_login.html");
             }
         })
     }
+
     var editor = editormd('editor', {
         // 这里的尺寸必须在这里设置. 设置样式会被 editormd 自动覆盖掉.
         width: "100%",
@@ -59,8 +64,10 @@
         // 编辑器中的初始内容
         markdown: "# 在这里写下一篇博客",
         // 指定 editor.md 依赖的插件路径
-        path: "../editor.md-master/lib/"
+        path: "../editor.md-master/lib/",
+        saveHTMLToTextarea: true
     });
+
     function submit() {
         let title1 = document.querySelector('.text-title');
         let content1 = editor.getMarkdown();
@@ -73,10 +80,7 @@
         }
         $.ajax({
             type: 'post',
-            url: '/blog',
-            contentType: 'application/json',
-            dataType: 'JSON',
-            data: JSON.stringify(article),
+            url: 'blog?title=' + article.title + '&content=' + article.content,
             success: function (body) {
                 alert("submit success");
                 editor.markdown = "# 在这里写下一篇博客";
